@@ -1,1 +1,0 @@
-fix: explicit WhatsApp enquiry with residential/commercial type + kW/bill, Vercel web-interface-guidelines compliance, invisible mobile scrollbar
