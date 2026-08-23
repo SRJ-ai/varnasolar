@@ -59,15 +59,15 @@ export const FloatingActionHub: React.FC<FloatingActionHubProps> = ({
             >
               <span className={labelCls} aria-hidden="true">WhatsApp</span>
               <motion.a
-                href="https://wa.me/919182445679?text=Hello%20Varna%20Solar%2C%20I%20am%20interested%20in%20a%20solar%20solution."
+                href="https://wa.me/919182445679?text=Hello%20Varna%20Solar%2C%20*Residential%2FCommercial%20enquiry*%20%E2%80%94%20I%27m%20in%20Hyderabad%2FTelangana%2FAP.%20Monthly%20bill%3A%20%E2%82%B9_____%20%2F%20Wanted%20size%3A%20__kW.%20Please%20share%20savings%20%26%20PM%20Surya%20Ghar%2FPM%20KUSUM%20details."
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                className="w-11 h-11 border border-ink/15 bg-paper-card text-ink flex items-center justify-center hover:bg-sun hover:text-paper transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2"
-                aria-label="Chat on WhatsApp"
+                className="w-11 h-11 border border-ink/15 bg-paper-card text-ink flex items-center justify-center hover:bg-sun hover:text-paper transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2 touch-manipulation"
+                aria-label="Chat on WhatsApp — Residential or Commercial enquiry, specify kW and bill"
               >
-                <MessageSquare aria-hidden="true" className="w-5 h-5" strokeWidth={1.75} />
+                <MessageSquare className="w-5 h-5" strokeWidth={1.75} aria-hidden="true" />
               </motion.a>
             </motion.div>
 
