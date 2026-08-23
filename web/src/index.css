@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════
+   INK & SUN — Bold Editorial System
+   paper canvas · ink type · one solar-orange accent
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --ink: #16150F;
+  --paper: #F4F3EE;
+  --sun: #FF4D00;
+  --hairline: rgba(22, 21, 15, 0.12);
+  --gutter-mobile: 24px;
+  --gutter-desktop: 80px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    color: var(--ink);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    scroll-margin-top: 88px;
+  }
+
+  /* Tabular numbers for data comparisons */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Global touch + safe-area hygiene */
+  html, body {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(255, 77, 0, 0.15);
+  }
+
+  /* Native select theming */
+  select {
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+
+  ::selection {
+    background: var(--sun);
+    color: #F4F3EE;
+  }
+
+  /* Thin neutral scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: rgba(22, 21, 15, 0.25); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--sun); }
+}
+
+@layer components {
+  /* Editorial container */
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1400px] px-6 md:px-12;
+  }
+
+  .hairline-t { border-top: 1px solid var(--hairline); }
+  .hairline-b { border-bottom: 1px solid var(--hairline); }
+  .hairline-y { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+  /* Mono micro-label — use sparingly (max 1 per 3 sections) */
+  .label-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .font-display {
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  /* Display headline scale */
+  .headline-hero {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-stretch: 115%;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.94;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+  .headline-section {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-stretch: 110%;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  /* Legacy compat: gradient text → solid sun accent */
+  .text-gradient {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+    color: var(--sun);
+  }
+  .text-amber { color: var(--sun); }
+  .text-amber-light { color: var(--sun); }
+  .text-brand-blue { color: var(--ink-soft, #4A483E); }
+
+  /* ═══ BUTTONS — sharp editorial blocks ═══ */
+
+  .btn-premium,
+  .btn-outline-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border-radius: 0 !important;
+    position: relative;
+    transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(255, 77, 0, 0.2);
+  }
+
+  .btn-premium:focus-visible,
+  .btn-outline-premium:focus-visible,
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--sun);
+    outline-offset: 2px;
+  }
+
+  /* Fallback ring for browsers without :focus-visible — still hide default outline only when replacement exists */
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible),
+  input:focus:not(:focus-visible),
+  select:focus:not(:focus-visible),
+  textarea:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .btn-premium {
+    background: var(--ink);
+    color: var(--paper) !important;
+    border: 1px solid var(--ink);
+    box-shadow: none;
+    overflow: visible;
+  }
+  .btn-premium::after {
+    content: '';
+    background: none;
+    opacity: 0;
+  }
+  .btn-premium:hover {
+    background: var(--sun);
+    border-color: var(--sun);
+    transform: translateY(-1px);
+  }
+  .btn-premium:active {
+    transform: translateY(1px);
+  }
+
+  .btn-outline-premium {
+    background: transparent;
+    border: 1px solid rgba(22, 21, 15, 0.35);
+    color: var(--ink) !important;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+  .btn-outline-premium:hover {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper) !important;
+  }
+
+  /* Legacy glass nav → paper nav */
+  .nav-glass {
+    background: rgba(244, 243, 238, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .animate-float { animation: none; }
+
+  /* Invisible scroll slider — used for project galleries */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Safe-area insets for full-bleed layouts */
+.container-editorial,
+header,
+footer {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* Overscroll containment for modals/drawers */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+
+/* Scroll slider invisible on all mobiles + responsive */
+@media (max-width: 768px) {
+  /* Hide page scrollbar thumb on mobile for clean editorial look */
+  ::-webkit-scrollbar {
+    width: 0px; height: 0px;
+  }
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+/* Marquee: pause on hover, focus-within and provide reduced-motion stop */
+.animate-marquee {
+  will-change: transform;
+}
+.group:hover .animate-marquee,
+.animate-marquee:hover,
+.animate-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}

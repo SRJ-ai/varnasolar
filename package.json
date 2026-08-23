@@ -1,0 +1,16 @@
+{
+  "name": "varnasolar",
+  "version": "1.0.0",
+  "description": "Varna Solar Redesign - Automated E2E Test Suite",
+  "main": "index.js",
+  "scripts": {
+    "test": "node scripts/run-e2e-tests.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Warangal Facility Case Study | VARNASOLAR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@500&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e5e2e1",
+                      "surface-container-high": "#2a2a2a",
+                      "on-surface": "#e5e2e1",
+                      "on-primary-fixed-variant": "#5e4200",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container": "#201f1f",
+                      "secondary-container": "#454749",
+                      "secondary-fixed-dim": "#c6c6c8",
+                      "tertiary": "#abebff",
+                      "inverse-primary": "#7c5800",
+                      "outline": "#9e8f78",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#454749",
+                      "on-surface-variant": "#d5c4ab",
+                      "on-primary": "#412d00",
+                      "surface-variant": "#353534",
+                      "on-tertiary-fixed": "#001f27",
+                      "error": "#ffb4ab",
+                      "surface": "#131313",
+                      "surface-dim": "#131313",
+                      "on-primary-fixed": "#271900",
+                      "kinetic-green": "#00E676",
+                      "surface-container-highest": "#353534",
+                      "on-secondary-container": "#b4b5b7",
+                      "tertiary-fixed": "#b0ecff",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#1a1c1d",
+                      "solar-amber": "#FF8A00",
+                      "primary-fixed": "#ffdea8",
+                      "on-secondary": "#2f3132",
+                      "on-tertiary-fixed-variant": "#004e5d",
+                      "outline-variant": "#514532",
+                      "primary-fixed-dim": "#ffba20",
+                      "inverse-surface": "#e5e2e1",
+                      "primary-container": "#ffb800",
+                      "on-tertiary": "#003641",
+                      "on-tertiary-container": "#005a6b",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#313030",
+                      "surface-container-low": "#1c1b1b",
+                      "on-primary-container": "#6b4c00",
+                      "secondary-fixed": "#e2e2e4",
+                      "background": "#131313",
+                      "tertiary-fixed-dim": "#17d8ff",
+                      "surface-tint": "#ffba20",
+                      "tertiary-container": "#00d7fe",
+                      "surface-bright": "#3a3939",
+                      "graphite-muted": "#2D2D2D",
+                      "primary": "#ffdca1",
+                      "secondary": "#c6c6c8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "element-gap": "32px",
+                      "margin-mobile": "24px",
+                      "gutter": "24px",
+                      "section-gap": "160px",
+                      "margin-desktop": "80px"
+              },
+              "fontFamily": {
+                      "display-hero": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-hero-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-tech": [
+                              "Geist"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "90px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "26px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "38px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "48px",
+                              {
+                                      "lineHeight": "52px",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-tech": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A; /* Cinematic near-black */
+            color: #e5e2e1;
+            transition: background-color 0.8s ease;
+        }
+        body.night-mode {
+            background-color: #030405; /* Deep charcoal */
+        }
+        .hero-img-container img {
+            transition: opacity 0.8s ease;
+        }
+        body.night-mode .hero-img-container img {
+            opacity: 0.15;
+        }
+        .glass-panel {
+            background: rgba(42, 42, 42, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #2D2D2D;
+            transition: background 0.8s ease, border-color 0.8s ease;
+        }
+        body.night-mode .glass-panel {
+            background: rgba(10, 15, 25, 0.6);
+            border-color: rgba(0, 215, 254, 0.2);
+        }
+        .tech-border {
+            border: 1px solid #2D2D2D;
+            transition: border-color 0.8s ease;
+        }
+        body.night-mode .tech-border {
+            border-color: rgba(0, 215, 254, 0.15);
+        }
+        .tech-border-b { border-bottom: 1px solid #2D2D2D; transition: border-color 0.8s ease; }
+        .tech-border-t { border-top: 1px solid #2D2D2D; transition: border-color 0.8s ease; }
+        body.night-mode .tech-border-b { border-bottom-color: rgba(0, 215, 254, 0.15); }
+        body.night-mode .tech-border-t { border-top-color: rgba(0, 215, 254, 0.15); }
+        
+        /* Glow effects for night mode */
+        .tech-icon, .tech-stat {
+            transition: text-shadow 0.8s ease, filter 0.8s ease, color 0.8s ease;
+        }
+        body.night-mode .tech-icon.text-solar-amber, 
+        body.night-mode .tech-stat.text-solar-amber {
+            color: #00d7fe; /* Switch to tertiary for night feel */
+            filter: drop-shadow(0 0 12px rgba(0, 215, 254, 0.6));
+            text-shadow: 0 0 20px rgba(0, 215, 254, 0.4);
+        }
+        body.night-mode .tech-stat.text-kinetic-green {
+            filter: drop-shadow(0 0 12px rgba(0, 230, 118, 0.6));
+            text-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md" style="--mouse-x: 0; --mouse-y: 0;">
+<!-- TopNavBar -->
+<nav class="bg-transparent backdrop-blur-xl dark:bg-transparent text-solar-amber dark:text-solar-amber border-b border-graphite-muted flex justify-between items-center w-full px-margin-desktop py-6 max-w-full mx-auto fixed z-50 top-0 transition-colors duration-800 night-mode:border-tertiary-container/20">
+<div class="text-headline-md font-headline-md font-bold tracking-tighter text-on-surface dark:text-on-surface">
+            VARNASOLAR
+        </div>
+<div class="hidden md:flex items-center gap-element-gap">
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Solutions</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Technology</a>
+<a class="text-solar-amber font-bold border-b-2 border-solar-amber pb-1 scale-95 transition-all duration-200 night-mode:text-tertiary-container night-mode:border-tertiary-container" href="#">Projects</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Sustainability</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Insights</a>
+</div>
+<button class="bg-primary-container text-background font-label-tech text-label-tech uppercase px-6 py-3 rounded hover:bg-surface-tint transition-colors night-mode:bg-tertiary-container night-mode:hover:bg-tertiary">
+            Connect Now
+        </button>
+</nav>
+<main class="flex-grow pt-32">
+<!-- Hero Section -->
+<section class="relative w-full h-[80vh] min-h-[600px] flex items-end pb-margin-desktop overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full hero-img-container">
+<img class="w-full h-full object-cover" data-alt="A sweeping, cinematic aerial shot of a massive industrial solar farm at sunset. The 'Solar Gold' sunlight reflects off thousands of perfectly aligned solar panels. Deep charcoal shadows contrast with the bright golden hour light. The facility looks highly advanced, precise, and structural." src="https://lh3.googleusercontent.com/aida/AEtjO1W6Zj9kUYmb8_Ss9Ygy8ofkpprPBL3dRri30NARc7tXtrpQR54H4GOLZbBu0MBZ2a7FBVwmdsnUK8nnJGDzv9IYdqu_yeP8uGO0BjTkIIMxR04UyKA7Wbu-yxHuWN2qkpLQpIrYModDvCUx9Qp-jUeHKOqXLeWeg8w2yNFrXEnF-0tAKwYPue8Y5xYzRU5FGeAjr7LALQmR_RaXq0lauGOeWHOXp_g59MMihByC_D8-UuNSNvYvuW2xTg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent transition-colors duration-800 night-mode:from-[#030405] night-mode:via-[#030405]/80"></div>
+</div>
+<!-- Shader Canvas Overlay -->
+<canvas class="absolute inset-0 w-full h-full z-0 mix-blend-screen opacity-60 pointer-events-none" id="atmosphere-shader"></canvas>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop w-full max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter h-full pb-12">
+<div class="md:col-span-10 flex flex-col justify-end">
+<!-- Toggle Switch -->
+<div class="mb-12 inline-flex bg-surface-container-highest/60 backdrop-blur-md rounded-xl p-1.5 border border-white/10 self-start shadow-xl">
+<button class="px-8 py-3 rounded-lg bg-inverse-surface text-background transition-all duration-500 flex flex-col items-center min-w-[140px] shadow-sm" id="toggle-morning">
+<span class="font-bold text-base tracking-wide">Morning</span>
+<span class="text-[10px] font-label-tech uppercase opacity-80 mt-1">Peak Generation</span>
+</button>
+<button class="px-8 py-3 rounded-lg text-on-surface hover:bg-white/5 transition-all duration-500 flex flex-col items-center min-w-[140px]" id="toggle-night">
+<span class="font-bold text-base tracking-wide">Night</span>
+<span class="text-[10px] font-label-tech uppercase opacity-80 mt-1">Grid Support</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-kinetic-green tech-stat"></span>
+<span class="font-label-tech text-label-tech text-kinetic-green uppercase tech-stat">System Operational</span>
+</div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-on-surface mb-8">
+                        Warangal Facility:<br/>12MW Industrial Utility Scale.
+                    </h1>
+<!-- Technical Metadata Row -->
+<div class="flex flex-wrap gap-x-8 gap-y-4 tech-border-t pt-6">
+<div class="flex flex-col gap-1">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Location</span>
+<span class="font-body-lg text-body-lg text-on-surface">Telangana, India</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Capacity</span>
+<span class="font-body-lg text-body-lg text-solar-amber tech-stat">12MW</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Commissioned</span>
+<span class="font-body-lg text-body-lg text-on-surface">2023</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Overview & Narrative -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-6 pr-0 md:pr-12">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-8">
+                        Architectural Precision Meets Megawatt Scale.
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        The Warangal facility represents a paradigm shift in industrial utility-scale solar deployment. Engineered to maximize yield in a challenging, high-irradiance environment, this 12MW installation demonstrates VARNASOLAR's commitment to turnkey EPC delivery without compromising on structural integrity.
+                    </p>
+<p class="font-body-md text-body-md text-on-secondary-container">
+                        Every component, from the deep-piled foundational arrays to the automated single-axis trackers, was meticulously modeled to ensure seamless grid synchronization and optimized energy yield over a projected 30-year lifecycle.
+                    </p>
+</div>
+<div class="md:col-span-6 mt-12 md:mt-0 flex flex-col justify-center gap-6">
+<div class="glass-panel p-8 flex items-start gap-6">
+<span class="material-symbols-outlined text-solar-amber text-4xl tech-icon" data-weight="fill">precision_manufacturing</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Turnkey EPC Delivery</h3>
+<p class="text-on-surface-variant">End-to-end engineering, procurement, and construction managed in-house for rigorous quality control.</p>
+</div>
+</div>
+<div class="glass-panel p-8 flex items-start gap-6">
+<span class="material-symbols-outlined text-solar-amber text-4xl tech-icon" data-weight="fill">bolt</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Grid Synchronization</h3>
+<p class="text-on-surface-variant">Advanced inverter architecture ensuring flawless integration with the regional high-voltage transmission network.</p>
+</div>
+</div>
+<div class="glass-panel p-8 flex items-start gap-6">
+<span class="material-symbols-outlined text-solar-amber text-4xl tech-icon" data-weight="fill">monitoring</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Optimized Yield</h3>
+<p class="text-on-surface-variant">AI-driven predictive tracking algorithms maximizing solar absorption during peak insolation hours.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specifications Bento Grid -->
+<section class="bg-surface-container-lowest py-section-gap px-margin-mobile md:px-margin-desktop tech-border-t transition-colors duration-800 night-mode:bg-transparent">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12 flex justify-between items-end">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">
+                        System Specifications
+                    </h2>
+<span class="font-label-tech text-label-tech text-solar-amber uppercase tracking-widest hidden md:block tech-stat">Data Validation: Verified</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Large Stat 1 -->
+<div class="md:col-span-2 bg-surface-container-high p-8 tech-border flex flex-col justify-between min-h-[240px] transition-colors duration-800 night-mode:bg-[#080B10]">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Annual Generation</span>
+<div class="mt-auto">
+<div class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-solar-amber tech-stat">18.5 <span class="font-headline-md text-headline-md text-on-surface">GWh</span></div>
+</div>
+</div>
+<!-- Large Stat 2 -->
+<div class="md:col-span-2 bg-surface-container-high p-8 tech-border flex flex-col justify-between min-h-[240px] transition-colors duration-800 night-mode:bg-[#080B10]">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">CO2 Reduction</span>
+<div class="mt-auto">
+<div class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-kinetic-green tech-stat">14,000 <span class="font-headline-md text-headline-md text-on-surface">Tons/Yr</span></div>
+</div>
+</div>
+<!-- Small Stats -->
+<div class="bg-surface-container-high p-6 tech-border flex flex-col gap-2 transition-colors duration-800 night-mode:bg-[#080B10]">
+<span class="material-symbols-outlined text-on-surface-variant mb-2">solar_power</span>
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">System Type</span>
+<span class="font-body-lg text-body-lg text-on-surface">Single-Axis Tracking</span>
+</div>
+<div class="bg-surface-container-high p-6 tech-border flex flex-col gap-2 transition-colors duration-800 night-mode:bg-[#080B10]">
+<span class="material-symbols-outlined text-on-surface-variant mb-2">speed</span>
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Module Efficiency</span>
+<span class="font-body-lg text-body-lg text-on-surface">22.4%</span>
+</div>
+<div class="bg-surface-container-high p-6 tech-border flex flex-col gap-2 transition-colors duration-800 night-mode:bg-[#080B10]">
+<span class="material-symbols-outlined text-on-surface-variant mb-2">settings_input_component</span>
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Inverter Config</span>
+<span class="font-body-lg text-body-lg text-on-surface">Centralized 5MVA</span>
+</div>
+<div class="bg-surface-container-high p-6 tech-border flex flex-col gap-2 transition-colors duration-800 night-mode:bg-[#080B10]">
+<span class="material-symbols-outlined text-on-surface-variant mb-2">verified</span>
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">System Uptime</span>
+<span class="font-body-lg text-body-lg text-on-surface">99.8% SLA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery / Execution -->
+<section class="py-section-gap">
+<div class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto mb-12">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">
+                    Installation &amp; Execution
+                </h2>
+</div>
+<div class="w-full flex overflow-x-auto gap-4 px-margin-mobile md:px-margin-desktop pb-8 no-scrollbar snap-x">
+<div class="min-w-[80vw] md:min-w-[60vw] h-[60vh] flex-shrink-0 snap-center relative tech-border">
+<img class="w-full h-full object-cover" data-alt="Close up architectural detail shot of industrial solar panels mounted on structural steel frames. High contrast, sharp focus on the precision engineering of the mounts. The deep black panels contrast with the stark white environment and subtle gold lighting. Cinematic, high-end industrial aesthetic." src="https://lh3.googleusercontent.com/aida/AEtjO1VInIDGhc_uajyFS9Xj8gG7VJeRzZC_Ro230E75DAdZLpt6P-r4dsJVH2wLASrWnxfjvzhybhRCaHEM-LfD0m0TeT1r5kdi0SvmacH5RxNEwiQ3YFVdvOroA2OLQBKlERgM2U6vdIexc_i660pDIZl-klGTy_1YM20_Y3qSHjGyVK5vf179QrwtuyP8gBM7FNrP4trJeNBYGT1_sAJag2-DEWQvHKFne3Tm9iW1lY_4-7jokdRyUvR53M0"/>
+<div class="absolute bottom-0 left-0 w-full p-6 glass-panel">
+<span class="font-label-tech text-label-tech text-on-surface uppercase tracking-widest">Structural Mounting System Detail</span>
+</div>
+</div>
+<div class="min-w-[80vw] md:min-w-[60vw] h-[60vh] flex-shrink-0 snap-center relative tech-border">
+<img class="w-full h-full object-cover" data-alt="Wide shot of a massive solar farm substation with large grey transformers and high voltage lines. Shot during blue hour with dramatic industrial lighting. The aesthetic is clean, precise, and technological, emphasizing grid scale infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7AaA8axjv0MU1zfW1XioIEhs-x1d9zQc3XhyyXwY7ybvFFmbMeyOdswpZJ65KS3W4XBLQrJ7I1fuYKFVIteOXPjhPUIf3oP2LD2LiMgZkULUCikw-Eu8N-4aja4JS538h5SqpCtIUHA8trEUzNlOBjEy9G1PiAwN4lh2xMW0rSSfa9Ck1nhdjYiflel0CZdxsIsMDInXqYlJCMMcgh6K1QbWw-hwHgj4z3xEy6Z4acQzORNTFSajB"/>
+<div class="absolute bottom-0 left-0 w-full p-6 glass-panel">
+<span class="font-label-tech text-label-tech text-on-surface uppercase tracking-widest">High-Voltage Grid Interconnection</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-high tech-border-t tech-border-b text-center transition-colors duration-800 night-mode:bg-transparent">
+<div class="max-w-[800px] mx-auto flex flex-col items-center">
+<span class="material-symbols-outlined text-solar-amber text-6xl mb-6 tech-icon">energy_savings_leaf</span>
+<h2 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-on-surface mb-8">
+                    Scale your energy future.
+                </h2>
+<button class="bg-primary-container text-background font-label-tech text-label-tech uppercase px-8 py-4 rounded hover:bg-surface-tint transition-colors flex items-center gap-2 night-mode:bg-tertiary-container night-mode:hover:bg-tertiary">
+                    Start a conversation
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-graphite-muted grid grid-cols-12 gap-gutter px-margin-desktop py-section-gap w-full transition-colors duration-800 night-mode:bg-transparent night-mode:border-tertiary-container/20">
+<div class="col-span-12 md:col-span-4 flex flex-col justify-between">
+<div class="text-headline-lg font-headline-lg font-bold text-on-surface mb-8">
+                VARNASOLAR
+            </div>
+<div class="text-on-secondary-container text-label-tech font-label-tech">
+                © 2024 VARNASOLAR. ARCHITECTURAL PRECISION IN ENERGY.
+            </div>
+</div>
+<div class="col-span-12 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col gap-4">
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Residential Solutions</a>
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Industrial Scale</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Grid Technology</a>
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Global Projects</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Sustainability Charter</a>
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Technical Support</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container hover:text-solar-amber transition-all duration-300 font-body-md text-body-md" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+    // --- Toggle Logic ---
+    const btnMorning = document.getElementById('toggle-morning');
+    const btnNight = document.getElementById('toggle-night');
+    let targetTransition = 0.0; // 0 for morning, 1 for night
+
+    btnNight.addEventListener('click', () => {
+        document.body.classList.add('night-mode');
+        targetTransition = 1.0;
+        
+        // Active Night state
+        btnNight.classList.add('bg-inverse-surface', 'text-background', 'shadow-sm');
+        btnNight.classList.remove('text-on-surface', 'hover:bg-white/5');
+        
+        // Inactive Morning state
+        btnMorning.classList.remove('bg-inverse-surface', 'text-background', 'shadow-sm');
+        btnMorning.classList.add('text-on-surface', 'hover:bg-white/5');
+    });
+
+    btnMorning.addEventListener('click', () => {
+        document.body.classList.remove('night-mode');
+        targetTransition = 0.0;
+        
+        // Active Morning state
+        btnMorning.classList.add('bg-inverse-surface', 'text-background', 'shadow-sm');
+        btnMorning.classList.remove('text-on-surface', 'hover:bg-white/5');
+        
+        // Inactive Night state
+        btnNight.classList.remove('bg-inverse-surface', 'text-background', 'shadow-sm');
+        btnNight.classList.add('text-on-surface', 'hover:bg-white/5');
+    });
+
+    // --- WebGL Shader Logic ---
+    const canvas = document.getElementById('atmosphere-shader');
+    const gl = canvas.getContext('webgl');
+
+    if (gl) {
+        // Resize canvas to match display size
+        function resizeCanvas() {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Vertex Shader (Standard full-screen quad)
+        const vsSource = `
+            attribute vec2 position;
+            varying vec2 v_texCoord;
+            void main() {
+                v_texCoord = position * 0.5 + 0.5;
+                gl_Position = vec4(position, 0.0, 1.0);
+            }
+        `;
+
+        // Fragment Shader from ANIMATION_24
+        const fsSource = `
+            precision highp float;
+            varying vec2 v_texCoord;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            uniform vec2 u_mouse;
+
+            // Helper to create a soft circular glow
+            float glow(vec2 uv, vec2 pos, float radius, float intensity) {
+                float d = length(uv - pos);
+                return intensity / pow(d / radius, 1.5);
+            }
+
+            void main() {
+                vec2 uv = v_texCoord;
+                vec2 mouse = u_mouse / u_resolution;
+                
+                // Transition based on mouse X position (simulating the toggle)
+                float transition = smoothstep(0.4, 0.6, mouse.x);
+                
+                // Base colors: Morning (Warm Gold) vs Night (Deep Blue/Charcoal)
+                vec3 morningColor = vec3(1.0, 0.85, 0.6) * 0.15; // Ambient morning glow
+                vec3 nightColor = vec3(0.05, 0.05, 0.15); // Deep night space
+                
+                vec3 baseColor = mix(morningColor, nightColor, transition);
+                
+                // Solar Light Trails (The Varnasolar motif)
+                float rays = 0.0;
+                for(float i = 0.0; i < 3.0; i++) {
+                    float speed = 0.2 + i * 0.1;
+                    float offset = i * 2.0;
+                    rays += abs(0.005 / (uv.y - 0.5 + sin(uv.x * 3.0 + u_time * speed + offset) * 0.1));
+                }
+                
+                vec3 solarGold = vec3(1.0, 0.7, 0.1) * rays * (1.0 - transition * 0.8);
+                
+                // Night-time facility highlights (Industrial glowing pulses)
+                float pulses = 0.0;
+                if(transition > 0.1) {
+                    pulses += glow(uv, vec2(0.3, 0.4), 0.05, 0.01) * transition;
+                    pulses += glow(uv, vec2(0.7, 0.5), 0.08, 0.015) * transition;
+                    pulses += glow(uv, vec2(0.5, 0.3), 0.04, 0.01) * transition;
+                }
+                vec3 nightGlow = vec3(0.1, 0.5, 1.0) * pulses * transition;
+                
+                vec3 finalColor = baseColor + solarGold + nightGlow;
+                
+                gl_FragColor = vec4(finalColor, 1.0);
+            }
+        `;
+
+        function compileShader(type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('Shader compilation error:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        const vertexShader = compileShader(gl.VERTEX_SHADER, vsSource);
+        const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fsSource);
+
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, 'position');
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const uTimeLocation = gl.getUniformLocation(program, 'u_time');
+        const uResolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+        const uMouseLocation = gl.getUniformLocation(program, 'u_mouse');
+
+        let currentMouseX = 0; // Starts at 0 (morning)
+
+        function render(time) {
+            // Smoothly interpolate currentMouseX towards targetTransition
+            currentMouseX += (targetTransition - currentMouseX) * 0.05;
+            
+            // Update CSS variables for completeness as requested
+            document.body.style.setProperty('--mouse-x', currentMouseX);
+            
+            gl.uniform1f(uTimeLocation, time * 0.001);
+            gl.uniform2f(uResolutionLocation, canvas.width, canvas.height);
+            // Pass simulated mouse position to cross the 0.5 threshold in shader
+            gl.uniform2f(uMouseLocation, currentMouseX * canvas.width, 0.5 * canvas.height);
+
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+        }
+        
+        requestAnimationFrame(render);
+    }
+</script>
+</body></html>

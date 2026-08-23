@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VARNASOLAR - Architectural Precision in Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#c6c6c8",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#271900",
+                        "primary-fixed": "#ffdea8",
+                        "on-secondary": "#2f3132",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffba20",
+                        "surface-tint": "#ffba20",
+                        "primary-container": "#ffb800",
+                        "on-tertiary": "#003641",
+                        "solar-amber": "#FF8A00",
+                        "surface-bright": "#3a3939",
+                        "surface-variant": "#353534",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-container": "#b4b5b7",
+                        "error": "#ffb4ab",
+                        "primary": "#ffdca1",
+                        "tertiary-fixed-dim": "#17d8ff",
+                        "secondary-fixed": "#e2e2e4",
+                        "kinetic-green": "#00E676",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed": "#1a1c1d",
+                        "on-primary": "#412d00",
+                        "on-tertiary-container": "#005a6b",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#00d7fe",
+                        "on-primary-container": "#6b4c00",
+                        "surface-container": "#201f1f",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#9e8f78",
+                        "on-secondary-fixed-variant": "#454749",
+                        "on-surface-variant": "#d5c4ab",
+                        "secondary-container": "#454749",
+                        "tertiary-fixed": "#b0ecff",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed-variant": "#5e4200",
+                        "inverse-primary": "#7c5800",
+                        "graphite-muted": "#2D2D2D",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#004e5d",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#c6c6c8",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#514532",
+                        "on-tertiary-fixed": "#001f27",
+                        "tertiary": "#abebff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "element-gap": "32px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-hero-mobile": ["Hanken Grotesk"],
+                        "label-tech": ["Geist"],
+                        "display-hero": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "display-hero-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "label-tech": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "display-hero": ["80px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        body.is-night {
+            background-color: #050b14;
+            color: #ffffff;
+        }
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        body.is-night .nav-glass {
+            background: rgba(5, 11, 20, 0.7);
+        }
+        .btn-primary {
+            background-color: #FFB800;
+            color: #0A0A0A;
+            border-radius: 4px;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid #F5F5F7;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .card-border {
+            border: 1px solid #2D2D2D;
+        }
+        body.is-night .card-border {
+            border-color: #1a2a40;
+        }
+        
+        /* Night Mode Overrides */
+        body.is-night .text-solar-amber {
+            color: #00d7fe;
+        }
+        body.is-night .bg-solar-amber {
+            background-color: #00d7fe;
+        }
+        body.is-night .btn-primary {
+            background-color: #00d7fe;
+        }
+        body.is-night .group-hover\:border-solar-amber:hover {
+            border-color: #00d7fe;
+        }
+        body.is-night .group-hover\:text-solar-amber:hover {
+            color: #00d7fe;
+        }
+        body.is-night .border-solar-amber {
+            border-color: #00d7fe;
+        }
+        body.is-night .hover\:text-solar-amber:hover {
+            color: #00d7fe;
+        }
+        body.is-night .hover\:border-solar-amber:hover {
+            border-color: #00d7fe;
+        }
+        
+        /* Glass Toggle */
+        .glass-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: inline-flex;
+            overflow: hidden;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+        .glass-toggle button {
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .glass-toggle button span.sub {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+        .glass-toggle button.active-morning {
+            background: #fdfbf7;
+            color: #131313;
+        }
+        .glass-toggle button.active-night {
+            background: #fdfbf7;
+            color: #131313;
+        }
+        .glass-toggle button:not(.active-morning):not(.active-night) {
+            color: #ffffff;
+            background: transparent;
+        }
+        
+        body.is-night .metric-glow {
+            text-shadow: 0 0 10px rgba(0, 215, 254, 0.5);
+            color: #00d7fe;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden selection:bg-solar-amber selection:text-black">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-full mx-auto fixed z-50 nav-glass border-b border-graphite-muted transition-all duration-300" id="main-nav">
+<div class="text-headline-md font-headline-md font-bold tracking-tighter text-on-surface">VARNASOLAR</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Solutions</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Technology</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Projects</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Sustainability</a>
+<a class="text-on-surface-variant font-medium hover:text-solar-amber transition-colors duration-300" href="#">Insights</a>
+</div>
+<div class="hidden md:block">
+<button class="btn-primary px-6 py-3 font-label-tech text-label-tech uppercase hover:bg-opacity-90 transition-opacity flex items-center gap-2">
+                Connect Now
+                <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+</button>
+</div>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<!-- SECTION 01: HERO -->
+<section class="relative w-full h-screen min-h-[800px] flex flex-col justify-center items-start px-margin-mobile md:px-margin-desktop pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<!-- STITCH_SHADER_START:ANIMATION_28 class="w-full h-full" -->
+<div class="w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_28" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_28');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `
+precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+// Helper for soft glow/pulsing light
+float glow(vec2 uv, vec2 pos, float radius, float intensity) {
+    float d = length(uv - pos);
+    return intensity / pow(d / radius, 1.4);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+    
+    // Smooth transition based on mouse X (the toggle's driver)
+    float transition = smoothstep(0.4, 0.6, mouse.x);
+    
+    // 1. Background Gradients
+    // Morning: Warm, sunrise-inspired gold and amber
+    vec3 morningBg = mix(vec3(0.08, 0.06, 0.02), vec3(0.15, 0.1, 0.05), uv.y);
+    // Night: Deep, cinematic charcoal and space blue
+    vec3 nightBg = mix(vec3(0.02, 0.02, 0.05), vec3(0.01, 0.01, 0.02), uv.y);
+    
+    vec3 baseColor = mix(morningBg, nightBg, transition);
+    
+    // 2. Solar Light Trails (The Varnasolar signature)
+    float rays = 0.0;
+    for(float i = 0.0; i < 4.0; i++) {
+        float speed = 0.15 + i * 0.05;
+        float offset = i * 1.5;
+        float wave = sin(uv.x * 2.5 + u_time * speed + offset) * 0.12;
+        rays += 0.003 / abs(uv.y - 0.5 + wave);
+    }
+    
+    vec3 solarGold = vec3(1.0, 0.65, 0.1) * rays * (1.0 - transition * 0.85);
+    
+    // 3. Night Atmosphere (Deep Space & Distant Stars)
+    float stars = 0.0;
+    if(transition > 0.2) {
+        // Simple procedural star field logic
+        vec2 starUV = uv * 50.0;
+        vec2 id = floor(starUV);
+        vec2 f = fract(starUV);
+        float n = fract(sin(dot(id, vec2(12.9898, 78.233))) * 43758.5453);
+        if(n > 0.98) {
+            stars = smoothstep(0.0, 1.0, (1.0 - length(f - 0.5) * 2.0)) * 0.5 * transition;
+        }
+    }
+    vec3 spaceDetail = vec3(0.8, 0.9, 1.0) * stars;
+    
+    // 4. Industrial Night Highlights (Glowing facility pulse)
+    float pulses = 0.0;
+    if(transition > 0.4) {
+        float t = u_time * 0.5;
+        pulses += glow(uv, vec2(0.2, 0.3), 0.08, 0.01 * (1.0 + sin(t) * 0.2)) * transition;
+        pulses += glow(uv, vec2(0.8, 0.4), 0.12, 0.015 * (1.0 + cos(t * 0.8) * 0.2)) * transition;
+        pulses += glow(uv, vec2(0.5, 0.2), 0.06, 0.01 * (1.0 + sin(t * 1.2) * 0.2)) * transition;
+    }
+    vec3 nightLight = vec3(0.1, 0.5, 1.0) * pulses;
+    
+    vec3 finalColor = baseColor + solarGold + spaceDetail + nightLight;
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}
+`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_28 -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-50"></div>
+</div>
+<!-- Toggle UI -->
+<div class="absolute top-32 left-margin-mobile md:left-margin-desktop z-30">
+<div class="glass-toggle" id="time-toggle">
+<button class="active-morning" id="btn-morning">
+            Morning
+            <span class="sub">$0 for Electricity</span>
+</button>
+<button id="btn-night">
+            Night
+            <span class="sub">$0 for Electricity</span>
+</button>
+</div>
+</div>
+<div class="relative z-10 w-full md:w-8/12 lg:w-7/12 grid grid-cols-1 gap-8 mt-24">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-kinetic-green animate-pulse"></div>
+<span class="font-label-tech text-label-tech uppercase tracking-widest text-on-surface-variant">System Optimal</span>
+</div>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">POWERING <br/> <span class="text-solar-amber">WHAT'S NEXT.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Advanced solar energy solutions engineered for a cleaner, more resilient future.</p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="btn-primary px-8 py-4 font-label-tech text-label-tech uppercase flex justify-center items-center gap-2 w-full sm:w-auto">
+                    Explore Solutions
+                    <span class="material-symbols-outlined" style="font-size: 16px;">arrow_right_alt</span>
+</button>
+<button class="btn-secondary px-8 py-4 font-label-tech text-label-tech uppercase flex justify-center items-center gap-2 w-full sm:w-auto hover:bg-white hover:text-black transition-colors duration-300">
+                    Talk to Our Energy Experts
+                </button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full px-margin-mobile md:px-margin-desktop py-6 border-t border-graphite-muted bg-[#0A0A0A]/80 backdrop-blur-md z-20 flex justify-between items-center text-on-surface-variant">
+<span class="font-label-tech text-label-tech tracking-widest hidden md:inline">ENGINEERED FOR SCALE • BUILT FOR PERFORMANCE • DESIGNED FOR TOMORROW</span>
+<div class="flex gap-4 items-center w-full md:w-auto justify-between md:justify-end">
+<span class="material-symbols-outlined text-solar-amber animate-bounce">south</span>
+<span class="font-label-tech text-label-tech uppercase">Scroll to Discover</span>
+</div>
+</div>
+</section>
+<!-- SECTION 02: ENERGY TRANSITION -->
+<section class="relative w-full py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-graphite-muted">
+<div class="absolute inset-0 z-0 opacity-30 mix-blend-screen">
+
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-6 flex flex-col justify-center">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">The world is changing. <br/> Energy must change with it.</h2>
+<div class="w-16 h-1 bg-solar-amber mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">The transition from fossil reliance to infinite solar potential requires architectural precision and industrial scale. We engineer the infrastructure for tomorrow's energy landscape.</p>
+<div class="flex flex-col gap-6 font-label-tech text-label-tech uppercase text-on-surface-variant tracking-widest">
+<div class="flex items-center gap-4 group">
+<span class="w-8 h-8 rounded-full border border-graphite-muted flex items-center justify-center group-hover:border-solar-amber group-hover:text-solar-amber transition-colors">01</span>
+<span>SUN</span>
+</div>
+<div class="h-8 w-px bg-graphite-muted ml-4"></div>
+<div class="flex items-center gap-4 group">
+<span class="w-8 h-8 rounded-full border border-graphite-muted flex items-center justify-center group-hover:border-solar-amber group-hover:text-solar-amber transition-colors">02</span>
+<span>ENERGY</span>
+</div>
+<div class="h-8 w-px bg-graphite-muted ml-4"></div>
+<div class="flex items-center gap-4 group">
+<span class="w-8 h-8 rounded-full border border-graphite-muted flex items-center justify-center group-hover:border-solar-amber group-hover:text-solar-amber transition-colors">03</span>
+<span>INDUSTRY</span>
+</div>
+<div class="h-8 w-px bg-graphite-muted ml-4"></div>
+<div class="flex items-center gap-4 group text-solar-amber">
+<span class="w-8 h-8 rounded-full border border-solar-amber flex items-center justify-center">04</span>
+<span>FUTURE</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-6 mt-12 md:mt-0 flex justify-end items-center">
+<img class="w-full h-auto object-cover card-border" data-alt="Massive industrial-scale solar array reflecting the golden hour sunlight. Cinematic, high contrast, precise geometric grid of solar panels stretching into the distance. Dark moody atmosphere with intense solar gold highlights. Engineered perfection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3otrnj53ZrgzZFqSOUb6M5i8vWVwEx9mg2mQCcWjdfvUqTdQW2J2WwkFRxi-A4cT5i4ib_B2eWjUcmAxsBsuitILBcpYCfPliUB7R3BTcMCBwO6dJS55O4fGSPJ8-8wH9BfIzUYHmq5GUo0b5yIJcSCg8EZXvL_K09xrdKcxAar2iceFdXb-6iAquFnv9VjBDNFVkL0hvWRmyFSwg41f8MVidzyjGLf7uT5M0afRNf820GOBlDsWC" style="aspect-ratio: 16/9;"/>
+</div>
+</div>
+</section>
+<!-- SECTION 04: INDUSTRIAL SOLAR -->
+<section class="w-full py-section-gap px-margin-mobile md:px-margin-desktop border-b border-graphite-muted bg-surface-container-lowest transition-colors duration-500">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 order-2 md:order-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-2 h-2 rounded-full bg-kinetic-green"></div>
+<span class="font-label-tech text-label-tech uppercase tracking-widest text-on-surface-variant">Core Capability</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">Power your operation.<br/>Not your electricity bill.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">MW SCALE HIGH-YIELD SYSTEMS ENGINEERED FOR INDUSTRY. We deliver turnkey solar EPC solutions designed to handle the most demanding operational loads with absolute reliability.</p>
+<button class="flex items-center gap-2 text-solar-amber font-label-tech text-label-tech uppercase hover:text-white transition-colors duration-300">
+                    View Specifications <span class="material-symbols-outlined" style="font-size: 16px;">arrow_outward</span>
+</button>
+</div>
+<div class="md:col-span-7 order-1 md:order-2 mb-12 md:mb-0 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest to-transparent z-10 hidden md:block"></div>
+<img class="w-full h-auto object-cover card-border relative z-0" data-alt="A split-screen composition showing heavy industrial machinery operating seamlessly on one side, and a vast, glowing solar farm on the other. High-tech, cinematic lighting, deep charcoal tones contrasting with vibrant solar gold. Emphasizing clean power for heavy industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC13oVh-hW43KkvQ_jEx5x6pW40dANOQEuA4uCDTQ324_9i7VZ1ycDRw3GJJoQ3uT8Yyi0SJBWjxH8RgPaOk1OVCiFYmHaw0fdGi7gxJD_VDdo7pMxgY354wAGlkAgTkq18D94XIwMwFKwpbZXjlKL24QwPxpdFfJj5n4a1HNf0DuzYs2EUAI3-0aaA8ehmkzFyKnoRBSaMfNIoU57fvJ-c9g9nZKA0pgblVJbmFSCsLlkE0nICa8Yz" style="aspect-ratio: 4/3;"/>
+<div class="absolute bottom-6 right-6 z-20 bg-[#0A0A0A]/90 p-6 card-border backdrop-blur-md hidden sm:block">
+<div class="font-label-tech text-label-tech text-on-surface-variant mb-2">OUTPUT YIELD</div>
+<div class="font-headline-md text-headline-md text-kinetic-green metric-glow transition-all duration-500">99.8%</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 07: PROJECTS -->
+<section class="w-full py-section-gap px-margin-mobile md:px-margin-desktop border-b border-graphite-muted">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Architectural<br/>Precision in Energy</h2>
+</div>
+<button class="btn-secondary px-6 py-3 font-label-tech text-label-tech uppercase hover:bg-white hover:text-black transition-colors duration-300">
+                View All Projects
+            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Project Card 1 -->
+<div class="group relative overflow-hidden card-border bg-surface-container hover:border-solar-amber transition-colors duration-500 cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden" style="aspect-ratio: 1.33;">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" data-alt="Warangal solar project installation." src="https://lh3.googleusercontent.com/aida/AEtjO1W6Zj9kUYmb8_Ss9Ygy8ofkpprPBL3dRri30NARc7tXtrpQR54H4GOLZbBu0MBZ2a7FBVwmdsnUK8nnJGDzv9IYdqu_yeP8uGO0BjTkIIMxR04UyKA7Wbu-yxHuWN2qkpLQpIrYModDvCUx9Qp-jUeHKOqXLeWeg8w2yNFrXEnF-0tAKwYPue8Y5xYzRU5FGeAjr7LALQmR_RaXq0lauGOeWHOXp_g59MMihByC_D8-UuNSNvYvuW2xTg"/>
+<div class="absolute top-4 left-4 bg-[#0A0A0A]/80 backdrop-blur-sm px-3 py-1 font-label-tech text-label-tech text-solar-amber border border-solar-amber/30 uppercase">Active</div>
+</div>
+<div class="p-8 flex flex-col flex-grow justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Warangal Facility</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Industrial Utility Scale</p>
+</div>
+<div class="mt-8 flex justify-between items-center border-t border-graphite-muted pt-4">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Capacity: 12MW</span>
+<span class="material-symbols-outlined text-solar-amber opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2 duration-300">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group relative overflow-hidden card-border bg-surface-container hover:border-solar-amber transition-colors duration-500 cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden" style="aspect-ratio: 1.33;">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" data-alt="Kakinada solar project installation." src="https://lh3.googleusercontent.com/aida/AEtjO1WZXCjPw7-jEeLEb1PJNAtwzeAUQqisaJyZSYVCcFlCFGgW11o0aK2q6oXVss-JsH49gG1X7_pZnxgAtIqqWE7KkXNDEthz3JgRbH3dcrrgpiUcQz5hyj0HL6cC6Ptql2zaOwIjkPIzo6yKxOyKEBGBQrtXuJf5pKb2dyKmcQS1kO1TkTFo1e6Pj673QitS8lAGu5sMNvhv772BEsBf2RrT337XFNz5dCgCDn2rK16NJp8_s43qYXvqJUo"/>
+<div class="absolute top-4 left-4 bg-[#0A0A0A]/80 backdrop-blur-sm px-3 py-1 font-label-tech text-label-tech text-kinetic-green border border-kinetic-green/30 uppercase">Online</div>
+</div>
+<div class="p-8 flex flex-col flex-grow justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Kakinada Port</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Commercial Rooftop</p>
+</div>
+<div class="mt-8 flex justify-between items-center border-t border-graphite-muted pt-4">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Capacity: 5MW</span>
+<span class="material-symbols-outlined text-solar-amber opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2 duration-300">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group relative overflow-hidden card-border bg-surface-container hover:border-solar-amber transition-colors duration-500 cursor-pointer flex flex-col h-full">
+<div class="relative overflow-hidden" style="aspect-ratio: 1.33;">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" data-alt="Sangareddy solar project installation." src="https://lh3.googleusercontent.com/aida/AEtjO1UnQIQ0cc6BcNVUbgnJoUnpM0dUoBMjSG699-H4HQIYnsotxEnMgKD2JzXGfT7-09DNiqPmc_wwQR4AcmCxEDQhf8D9QwiYKJcinfGVnDwP7tkFLzbKkpd8pgVaLDjMJrwVwNVRVuOytzLLqWeAXYJWUb1DICtBiZgfNOfvVgoXsI47aIiRO9vyDg2WReesr861O7dOWdfRr1IzfVyrr92Mz176tKFSbZfHQVhNkkteAxs3Nw2nIWzaZms"/>
+<div class="absolute top-4 left-4 bg-[#0A0A0A]/80 backdrop-blur-sm px-3 py-1 font-label-tech text-label-tech text-on-surface-variant border border-graphite-muted uppercase">Completed</div>
+</div>
+<div class="p-8 flex flex-col flex-grow justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Sangareddy Complex</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ground Mount EPC</p>
+</div>
+<div class="mt-8 flex justify-between items-center border-t border-graphite-muted pt-4">
+<span class="font-label-tech text-label-tech text-on-surface-variant uppercase">Capacity: 25MW</span>
+<span class="material-symbols-outlined text-solar-amber opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-2 duration-300">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 13: FINAL CTA -->
+<section class="relative w-full h-screen min-h-[600px] flex items-center justify-center px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-graphite-muted">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="Massive solar installation during golden hour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3otrnj53ZrgzZFqSOUb6M5i8vWVwEx9mg2mQCcWjdfvUqTdQW2J2WwkFRxi-A4cT5i4ib_B2eWjUcmAxsBsuitILBcpYCfPliUB7R3BTcMCBwO6dJS55O4fGSPJ8-8wH9BfIzUYHmq5GUo0b5yIJcSCg8EZXvL_K09xrdKcxAar2iceFdXb-6iAquFnv9VjBDNFVkL0hvWRmyFSwg41f8MVidzyjGLf7uT5M0afRNf820GOBlDsWC"/>
+<div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl mx-auto">
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-8">Ready to power <br/><span class="text-solar-amber">what's next?</span></h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+<button class="btn-primary px-10 py-5 font-label-tech text-label-tech uppercase flex justify-center items-center gap-2">
+                    Start Your Project
+                    <span class="material-symbols-outlined" style="font-size: 16px;">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full bg-surface-container-lowest border-t border-graphite-muted transition-colors duration-500">
+<div class="col-span-1 md:col-span-4 mb-12 md:mb-0">
+<div class="text-headline-lg font-headline-lg font-bold text-on-surface mb-6">VARNASOLAR</div>
+<p class="font-body-md text-body-md text-on-secondary-container max-w-sm mb-8">© 2024 VARNASOLAR. ARCHITECTURAL PRECISION IN ENERGY.</p>
+<div class="flex gap-4">
+<!-- Social Placeholders -->
+<div class="w-10 h-10 border border-graphite-muted flex items-center justify-center hover:border-solar-amber hover:text-solar-amber transition-colors cursor-pointer text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 20px;">link</span>
+</div>
+<div class="w-10 h-10 border border-graphite-muted flex items-center justify-center hover:border-solar-amber hover:text-solar-amber transition-colors cursor-pointer text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 20px;">mail</span>
+</div>
+</div>
+</div>
+<div class="col-span-1 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-label-tech text-label-tech text-on-surface uppercase tracking-widest mb-2">Solutions</span>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Residential Solutions</a>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Industrial Scale</a>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Grid Technology</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-tech text-label-tech text-on-surface uppercase tracking-widest mb-2">Company</span>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Global Projects</a>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Sustainability Charter</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-tech text-label-tech text-on-surface uppercase tracking-widest mb-2">Support</span>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Technical Support</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-tech text-label-tech text-on-surface uppercase tracking-widest mb-2">Legal</span>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-secondary-container hover:text-solar-amber transition-all duration-300" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple nav background transition on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                if(document.body.classList.contains('is-night')) {
+                    nav.classList.add('bg-[#050b14]/90');
+                    nav.classList.remove('bg-transparent', 'bg-[#0A0A0A]/90');
+                } else {
+                    nav.classList.add('bg-[#0A0A0A]/90');
+                    nav.classList.remove('bg-transparent', 'bg-[#050b14]/90');
+                }
+            } else {
+                nav.classList.remove('bg-[#0A0A0A]/90', 'bg-[#050b14]/90');
+                nav.classList.add('bg-transparent');
+            }
+        });
+
+        // Morning/Night Toggle Logic
+        const btnMorning = document.getElementById('btn-morning');
+        const btnNight = document.getElementById('btn-night');
+        const shader = document.getElementById('hero-shader');
+
+        function setNightMode(isNight) {
+            if (isNight) {
+                document.body.classList.add('is-night');
+                btnNight.classList.add('active-night');
+                btnMorning.classList.remove('active-morning');
+                
+                // Simulate mouse X moving to the right for the shader transition
+                if(shader) {
+                    shader.setAttribute('uniforms', JSON.stringify({ u_mouse: [window.innerWidth, window.innerHeight/2] }));
+                }
+                
+                // Update nav if scrolled
+                const nav = document.getElementById('main-nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-[#050b14]/90');
+                    nav.classList.remove('bg-[#0A0A0A]/90');
+                }
+            } else {
+                document.body.classList.remove('is-night');
+                btnMorning.classList.add('active-morning');
+                btnNight.classList.remove('active-night');
+                
+                // Simulate mouse X moving to the left for the shader transition
+                if(shader) {
+                    shader.setAttribute('uniforms', JSON.stringify({ u_mouse: [0, window.innerHeight/2] }));
+                }
+                
+                // Update nav if scrolled
+                const nav = document.getElementById('main-nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-[#0A0A0A]/90');
+                    nav.classList.remove('bg-[#050b14]/90');
+                }
+            }
+        }
+
+        btnMorning.addEventListener('click', () => setNightMode(false));
+        btnNight.addEventListener('click', () => setNightMode(true));
+    </script>
+</body></html>
