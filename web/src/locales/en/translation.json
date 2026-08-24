@@ -15,5 +15,82 @@
     "btnSurvey": "Get Free Site Survey",
     "ctaQuote": "Get a Quote",
     "ctaProjects": "View Landmark Projects"
+  },
+  "home": {
+    "trusted": {
+      "label": "Trusted by leading organisations",
+      "heading": "Partners across industry, infrastructure and public sector projects.",
+      "footer": "30 partners — NTPC · BHEL · GMR · ITC · AAI · Indian Railways · TGGENCO and more"
+    },
+    "impact": {
+      "heading1": "Our impact in ",
+      "heading2": "numbers.",
+      "subhead": "Engineering outcomes audited across the Raion Techno Group portfolio"
+    },
+    "services": {
+      "label": "What we do",
+      "heading1": "End-to-end solar ",
+      "heading2": "engineering.",
+      "subhead": "From rooftop to ground-mount — feasibility, subsidy, EPC and lifetime monitoring in one contract.",
+      "learnMore": "Learn More"
+    },
+    "why": {
+      "label": "Why solar with Varna",
+      "heading1": "Five reasons owners choose ",
+      "heading2": "us."
+    },
+    "schemes": {
+      "label": "Government schemes",
+      "heading1": "Subsidies we unlock for ",
+      "heading2": "you.",
+      "explore": "Explore"
+    },
+    "estimator": {
+      "label": "Instant solar estimator",
+      "heading": "Want to know how much you can save with Solar?",
+      "subhead": "Get system size, subsidy and payback in under 30 seconds — tailored to your bill and roof.",
+      "btn": "Launch Solar Calculator"
+    },
+    "process": {
+      "label": "Our 8-step hassle-free process",
+      "heading1": "From enquiry to ",
+      "heading2": "net-metering.",
+      "subhead": "No running around — we own every step from subsidy sanction to AMC monitoring."
+    },
+    "about": {
+      "label": "About Varna Solar",
+      "heading1": "Built inside a 720 Cr ",
+      "heading2": "group.",
+      "desc": "Varna Solar Pvt. Ltd. is the dedicated solar EPC arm of Raion Techno Group — a diversified engineering group with interests spanning infrastructure, power and industrial services. Established in 2014 and incorporated as a private limited company in 2025, Varna executes rooftop, commercial, industrial and agricultural solar across Telangana & Andhra Pradesh as an authorised Waaree Energies channel partner.",
+      "btn": "More about us",
+      "hq": "Engineering HQ — Hyderabad"
+    },
+    "leadership": {
+      "label": "Executive leadership",
+      "heading1": "Led by ",
+      "heading2": "engineers."
+    },
+    "projects": {
+      "label": "Projects & solutions",
+      "heading1": "Featured ",
+      "heading2": "projects.",
+      "btn": "View all projects"
+    },
+    "regional": {
+      "label": "Regional footprint",
+      "heading1": "Headquarters & branch ",
+      "heading2": "network.",
+      "subhead": "Five offices across Telangana & Andhra Pradesh — DISCOM-coordinated execution wherever you are.",
+      "helpline": "Helpline",
+      "directions": "Get Directions"
+    },
+    "contact": {
+      "label": "Get in touch",
+      "heading1": "READY TO DISCUSS YOUR",
+      "heading2": "ROOFTOP SOLAR",
+      "subhead": "Free site assessment, DISCOM net-metering and subsidy paperwork — handled end-to-end. Talk to an engineer today.",
+      "btnContact": "Contact us",
+      "btnSurvey": "Get free survey"
+    }
   }
 }
