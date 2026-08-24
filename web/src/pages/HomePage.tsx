@@ -290,27 +290,10 @@ export const HomePage: React.FC = () => {
                 {COMPANY_DATA.clientLogos.map((client) => (
                   <div
                     key={`${dup}-${client.id}`}
-                    className="shrink-0 w-[176px] h-[84px] bg-paper-card border border-ink/10 flex items-center justify-center px-4 py-3"
+                    className="shrink-0 w-[176px] h-[84px] bg-paper-card border border-ink/10 flex items-center justify-center px-4 py-3 hover:bg-ink hover:text-paper transition-colors"
                     title={client.name}
                   >
-                    {client.logoUrl ? (
-                      <img width="140" height="40"
-                        src={`https://wsrv.nl/?url=${encodeURIComponent(client.logoUrl.replace(/^https?:\/\//, ''))}&w=140&output=webp&q=60`}
-                        alt={client.name}
-                        loading="lazy"
-                        className="max-h-10 max-w-[140px] w-auto h-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                        onError={(e) => {
-                          const target = e.currentTarget as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextElementSibling as HTMLElement | null;
-                          if (fallback) fallback.style.display = 'block';
-                        }}
-                      />
-                    ) : null}
-                    <span
-                      style={{ display: client.logoUrl ? 'none' : 'block' }}
-                      className="font-display font-black uppercase tracking-tight text-xs text-ink-soft text-center leading-tight"
-                    >
+                    <span className="font-display font-black uppercase tracking-tight text-xs text-center leading-tight">
                       {client.logoPlaceholderText}
                     </span>
                   </div>
