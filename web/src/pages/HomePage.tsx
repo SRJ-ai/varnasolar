@@ -170,7 +170,7 @@ export const HomePage: React.FC = () => {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease, delay: 0.08 }}
-                className="headline-hero text-[clamp(3.2rem,9vw,8.2rem)]"
+                className="headline-hero text-[clamp(3rem,7.5vw,6.5rem)]"
               >
                 {t('hero.headline').replace('.', '')}
                 <span className="text-sun">.</span>
