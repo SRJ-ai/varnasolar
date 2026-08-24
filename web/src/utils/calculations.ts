@@ -4,7 +4,8 @@ import { ConnectionType, SolarCalculationResult } from '../types/solar';
 export function calculateSolarSavings(
   monthlyBill: number,
   stateCode: string = 'TG',
-  connectionType: ConnectionType = 'residential'
+  connectionType: ConnectionType = 'residential',
+  liveGenFactor?: number
 ): SolarCalculationResult {
   const stateData = STATE_TARIFFS_DATA.find((s) => s.code === stateCode) || STATE_TARIFFS_DATA.find((s) => s.code === 'TG') || STATE_TARIFFS_DATA[0];
   
@@ -14,7 +15,7 @@ export function calculateSolarSavings(
 
   const monthlyUnits = monthlyBill / tariffPerUnit;
   const dailyUnits = monthlyUnits / 30;
-  const dailyGenPerKW = stateData.dailyGenFactor || 4.5;
+  const dailyGenPerKW = liveGenFactor || stateData.dailyGenFactor || 4.5;
   
   let rawKw = dailyUnits / dailyGenPerKW;
   if (rawKw < 1) rawKw = 1;

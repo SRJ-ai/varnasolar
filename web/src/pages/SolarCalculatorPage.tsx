@@ -19,6 +19,8 @@ export const SolarCalculatorPage: React.FC = () => {
   const [connectionType, setConnectionType] = useState<ConnectionType>('residential');
   const [monthlyBill, setMonthlyBill] = useState<number>(4500);
   const [kwpInput, setKwpInput] = useState<string>('');
+  const [liveGenFactor, setLiveGenFactor] = useState<number | undefined>(undefined);
+  const [isLiveWeather, setIsLiveWeather] = useState(false);
 
   const selectedState = STATE_TARIFFS_DATA.find((s) => s.code === selectedStateCode) || STATE_TARIFFS_DATA[0];
   // If kWp manually entered, derive a bill to feed calculator; otherwise use bill slider
@@ -32,7 +34,48 @@ export const SolarCalculatorPage: React.FC = () => {
     }
     return monthlyBill;
   })();
-  const results = calculateSolarSavings(effectiveBill, selectedStateCode, connectionType);
+  
+  // Fetch Live Weather Data from Open-Meteo
+  useEffect(() => {
+    let isMounted = true;
+    const fetchWeather = async () => {
+      try {
+        const lat = selectedStateCode === 'TG' ? 17.3850 : 16.5062;
+        const lon = selectedStateCode === 'TG' ? 78.4867 : 80.6480;
+        
+        // Fetch daily shortwave radiation sum in MJ/m²
+        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=shortwave_radiation_sum&timezone=auto`);
+        const data = await response.json();
+        
+        if (data && data.daily && data.daily.shortwave_radiation_sum) {
+          const recentDays = data.daily.shortwave_radiation_sum.filter(Boolean);
+          if (recentDays.length > 0) {
+            // Average the forecast
+            const avgMj = recentDays.reduce((a: number, b: number) => a + b, 0) / recentDays.length;
+            // 1 kWh/m2 = 3.6 MJ/m2. Apply 0.75 performance ratio for typical solar systems.
+            const calculatedFactor = (avgMj / 3.6) * 0.75; 
+            
+            if (isMounted) {
+              setLiveGenFactor(Math.round(calculatedFactor * 10) / 10);
+              setIsLiveWeather(true);
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch live weather", err);
+        if (isMounted) {
+          setIsLiveWeather(false);
+          setLiveGenFactor(undefined);
+        }
+      }
+    };
+    
+    fetchWeather();
+    
+    return () => { isMounted = false; };
+  }, [selectedStateCode]);
+
+  const results = calculateSolarSavings(effectiveBill, selectedStateCode, connectionType, liveGenFactor);
   const discomsForState = selectedState.discoms;
   const roofArea = results.roofAreaRequiredSqFt;
 
@@ -54,7 +97,14 @@ export const SolarCalculatorPage: React.FC = () => {
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-6 flex flex-wrap gap-2">
             <span className="label-mono border border-ink/15 px-3 py-1.5 bg-paper-card">Live — state tariffs &amp; DCR slabs</span>
-            <span className="label-mono border border-ink/15 px-3 py-1.5 bg-sun-tint text-sun">TG · AP default</span>
+            {isLiveWeather ? (
+              <span className="label-mono border border-sun/30 px-3 py-1.5 bg-sun-tint text-sun flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-sun animate-pulse" />
+                Live DNI Weather Active ({liveGenFactor} kWh/kWp)
+              </span>
+            ) : (
+              <span className="label-mono border border-ink/15 px-3 py-1.5 bg-sun-tint text-sun">TG · AP default</span>
+            )}
           </motion.div>
         </div>
       </section>
