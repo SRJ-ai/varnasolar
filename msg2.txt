@@ -1,1 +1,0 @@
-fix: book load study to contact, trusted headline balance, premium cursor restored, Varna Solar metadata, rooftop text pretty, single-hub FAB
