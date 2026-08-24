@@ -29,7 +29,6 @@ import { InfiniteMarquee } from '@/components/common/InfiniteMarquee';
 import { ImpactTicker } from '@/components/common/ImpactTicker';
 import { Magnetic } from '@/components/common/Magnetic';
 
-const LazySolarRoof3D = React.lazy(() => import('@/components/common/SolarRoof3D').then(module => ({ default: module.SolarRoof3D })));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -343,21 +342,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ═══════════════════ 3.5 — 3D INTERACTIVE ROOF ═══════════════════ */}
-      <section className="w-full py-16 md:py-24 bg-ink text-paper overflow-hidden">
-        <div className="container-editorial mb-10">
-          <p className="label-mono text-sun">Engineering Precision</p>
-          <h2 className="headline-section text-[clamp(1.9rem,4.5vw,3.75rem)] max-w-3xl">
-            Interactive 3D <span className="text-sun">Solar Layouts.</span>
-          </h2>
-          <p className="text-base md:text-lg text-ink-mute max-w-2xl leading-relaxed mt-4">
-            Drag to rotate the roof. Every project receives a millimeter-perfect 3D shadow analysis before installation.
-          </p>
-        </div>
-        <React.Suspense fallback={<div className="w-full h-full flex items-center justify-center text-ink-mute font-mono text-sm">Loading 3D Visualizer...</div>}>
-          <LazySolarRoof3D />
-        </React.Suspense>
-      </section>
+
 
       {/* ═══════════════════ 4 — WHAT WE DO ═══════════════════ */}
       <section className="w-full bg-paper-deep hairline-y py-16 md:py-24">
