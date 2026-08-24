@@ -30,7 +30,6 @@ import { ImpactTicker } from '@/components/common/ImpactTicker';
 import { Magnetic } from '@/components/common/Magnetic';
 
 const LazySolarRoof3D = React.lazy(() => import('@/components/common/SolarRoof3D').then(module => ({ default: module.SolarRoof3D })));
-const LazyEarthGlobe = React.lazy(() => import('@/components/common/EarthGlobe').then(module => ({ default: module.EarthGlobe })));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -777,25 +776,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ═══════════════════ 12.5 — IMPACT EARTH ═══════════════════ */}
-      <section className="w-full py-16 md:py-24 bg-paper">
-        <div className="container-editorial">
-          <div className="bg-paper-card border border-ink/15 p-8 md:p-12 relative overflow-hidden group min-h-[400px] flex items-center justify-center">
-            <div className="absolute inset-0 bg-ink/5 group-hover:bg-ink/0 transition-colors z-10 pointer-events-none" />
-            <div className="absolute inset-0 z-0">
-              <React.Suspense fallback={<div className="w-full h-full flex items-center justify-center text-ink-mute font-mono text-sm">Loading Impact Globe...</div>}>
-                <LazyEarthGlobe />
-              </React.Suspense>
-            </div>
-            
-            <div className="relative z-20 pointer-events-none text-center bg-paper/80 backdrop-blur px-6 py-4 border border-ink/10">
-              <span className="label-mono text-ink-mute block mb-2">{t('impact.chartLabel')}</span>
-              <span className="font-display font-black text-4xl block text-ink">Global Footprint</span>
-              <span className="text-sm text-ink-soft mt-1 block">Live tracking of Varna Solar deployments</span>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ═══════════════════ 13 — GET IN TOUCH PREVIEW ═══════════════════ */}
       <section className="w-full bg-ink text-paper">
