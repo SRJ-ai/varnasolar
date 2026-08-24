@@ -105,7 +105,7 @@ export const PhotonBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[-1] opacity-60 transition-opacity duration-1000"
+      className="fixed inset-0 pointer-events-none z-[1] opacity-70 transition-opacity duration-1000"
       style={{ mixBlendMode: 'screen' }}
     />
   );

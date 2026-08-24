@@ -240,26 +240,26 @@ export const SolarCalculatorPage: React.FC = () => {
                   <span className="font-display font-black uppercase tracking-tight leading-none text-[clamp(2.8rem,6vw,4.8rem)] text-ink block">₹{results.lifetimeSavingsINR30Yr.toLocaleString('en-IN')}</span>
                   <span className="text-sm text-ink-soft mt-3 block leading-relaxed">₹{results.annualSavingsINR.toLocaleString('en-IN')}/yr · {results.annualGenerationKWh.toLocaleString('en-IN')} kWh/yr · ~{results.monthlyGenerationKWh.toLocaleString('en-IN')} kWh/mo</span>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link to="/contact" className="btn-premium flex-1 justify-center py-4">Claim ₹{results.centralSubsidyINR.toLocaleString('en-IN')} Subsidy Quote <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={1.75} /></Link>
+                <div className="flex flex-col sm:flex-row gap-3 items-stretch">
+                  <Link to="/contact" className="btn-premium flex-1 flex justify-center items-center py-4 text-center">Claim ₹{results.centralSubsidyINR.toLocaleString('en-IN')} Subsidy Quote <ArrowRight aria-hidden="true" className="w-4 h-4 ml-2" strokeWidth={1.75} /></Link>
                   
                   <React.Suspense fallback={
-                    <button disabled className="btn-outline-premium flex-1 opacity-70 cursor-wait py-4 text-center justify-center">
+                    <button disabled className="btn-outline-premium flex-1 opacity-70 cursor-wait py-4 flex justify-center items-center text-center">
                       Loading Document Engine...
                     </button>
                   }>
-                    <div className="flex-1">
+                    <div className="flex-1 flex">
                       <LazyQuoteDownloadButton 
                         results={results} 
                         connectionType={connectionType}
                       />
                     </div>
                   </React.Suspense>
-                  
-                  <p className="text-center text-ink-mute text-xs mt-4">
-                    * Estimates based on {selectedState.name} state subsidies &amp; average insolation.
-                  </p>
                 </div>
+                
+                <p className="text-center text-ink-mute text-xs mt-4">
+                  * Estimates based on {selectedState.name} state subsidies &amp; average insolation.
+                </p>
               </div>
 
               <p className="text-xs text-ink-mute mt-4 leading-relaxed">Indicative only — final quote after 3D shadow &amp; sanction-load check. {selectedState.name} tariff ₹{selectedState.defaultTariff}/unit, {selectedState.dailyGenFactor} kWh/kWp/day. Costs use DCR slabs for {selectedState.name}.</p>
