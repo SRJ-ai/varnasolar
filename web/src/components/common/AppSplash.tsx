@@ -35,12 +35,12 @@ export const AppSplash: React.FC = () => {
           >
             <div className="w-16 h-16 border-4 border-paper/10 border-t-sun rounded-full animate-spin mb-8" />
             <motion.h1 
-              className="font-display font-black text-3xl md:text-5xl uppercase tracking-tight"
+              className="font-display font-black text-2xl sm:text-3xl md:text-5xl uppercase tracking-tight text-center leading-tight px-4 w-full text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Welcome to <span className="text-sun">Varna Solar</span>
+              Welcome to <br className="sm:hidden" /><span className="text-sun">Varna Solar</span>
             </motion.h1>
             <motion.p
               className="label-mono mt-4 text-ink-mute"
