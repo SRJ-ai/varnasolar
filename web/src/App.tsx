@@ -5,6 +5,7 @@ import { SmoothScroll } from './components/common/SmoothScroll';
 import { ScrollProgress } from './components/common/ScrollProgress';
 import { ExitIntentModal } from './components/common/ExitIntentModal';
 import { AppSplash } from './components/common/AppSplash';
+import { ThemeProvider } from './components/common/ThemeProvider';
 // Page Imports
 import { Suspense, lazy } from 'react';
 import { PageLoader } from './components/common/PageLoader';
@@ -95,14 +96,16 @@ const AnimatedRoutes = () => {
 
 export function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <AppSplash />
-      <ScrollProgress />
-      <SmoothScroll>
-        <AnimatedRoutes />
-      </SmoothScroll>
-      <ExitIntentModal />
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="system" storageKey="varna-ui-theme">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <AppSplash />
+        <ScrollProgress />
+        <SmoothScroll>
+          <AnimatedRoutes />
+        </SmoothScroll>
+        <ExitIntentModal />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

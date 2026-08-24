@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { COMPANY_DATA } from '@/data/companyData';
 import { Sun, Moon } from 'lucide-react';
+import { useTheme } from '@/components/common/ThemeProvider';
+import { Magnetic } from '@/components/common/Magnetic';
 
 export const Topbar: React.FC = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    if (document.documentElement.classList.contains('dark')) {
-      setIsDark(true);
-    }
-  }, []);
+  const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add('dark');
-      setIsDark(true);
-    }
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
   return (
     <div className="w-full bg-ink text-paper">
@@ -42,13 +32,15 @@ export const Topbar: React.FC = () => {
           </a>
           <span className="label-mono text-sun hidden lg:inline">PM Surya Ghar Partner</span>
           <span className="text-paper/30 hidden sm:inline">|</span>
-          <button 
-            onClick={toggleTheme} 
-            className="text-paper hover:text-sun transition-colors ml-2 focus:outline-none"
-            aria-label="Toggle Dark Mode"
-          >
-            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+          <Magnetic intensity={0.5}>
+            <button 
+              onClick={toggleTheme} 
+              className="text-paper hover:text-sun transition-colors ml-2 focus:outline-none p-1"
+              aria-label="Toggle Dark Mode"
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+          </Magnetic>
         </div>
       </div>
     </div>

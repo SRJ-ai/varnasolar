@@ -29,6 +29,7 @@ import { InfiniteMarquee } from '@/components/common/InfiniteMarquee';
 import { ImpactTicker } from '@/components/common/ImpactTicker';
 import { SolarRoof3D } from '@/components/common/SolarRoof3D';
 import { Magnetic } from '@/components/common/Magnetic';
+import { EarthGlobe } from '@/components/common/EarthGlobe';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -769,6 +770,24 @@ export const HomePage: React.FC = () => {
             <Link to="/contact" className="label-mono inline-flex items-center gap-1.5 border border-ink/15 px-4 py-2.5 hover:bg-ink hover:text-paper transition-colors">
               Get Directions <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" strokeWidth={2} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════ 12.5 — IMPACT EARTH ═══════════════════ */}
+      <section className="w-full py-16 md:py-24 bg-paper">
+        <div className="container-editorial">
+          <div className="bg-paper-card border border-ink/15 p-8 md:p-12 relative overflow-hidden group min-h-[400px] flex items-center justify-center">
+            <div className="absolute inset-0 bg-ink/5 group-hover:bg-ink/0 transition-colors z-10 pointer-events-none" />
+            <div className="absolute inset-0 z-0">
+              <EarthGlobe />
+            </div>
+            
+            <div className="relative z-20 pointer-events-none text-center bg-paper/80 backdrop-blur px-6 py-4 border border-ink/10">
+              <span className="label-mono text-ink-mute block mb-2">{t('impact.chartLabel')}</span>
+              <span className="font-display font-black text-4xl block text-ink">Global Footprint</span>
+              <span className="text-sm text-ink-soft mt-1 block">Live tracking of Varna Solar deployments</span>
+            </div>
           </div>
         </div>
       </section>

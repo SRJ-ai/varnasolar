@@ -57,12 +57,30 @@ const ProjectCard = ({ project, idx, openModal }: { project: ProjectCaseStudy, i
     y.set(0);
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, clipPath: 'inset(10% 10% 10% 10%)' },
+    visible: { 
+      opacity: 1, 
+      clipPath: 'inset(0% 0% 0% 0%)',
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: (idx % 3) * 0.1 }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { scale: 1.1, filter: 'grayscale(100%) blur(4px)' },
+    visible: { 
+      scale: 1, 
+      filter: 'grayscale(0%) blur(0px)',
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: ((idx % 3) * 0.1) + 0.2 }
+    }
+  };
+
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, ease, delay: (idx % 3) * 0.06 }}
       onClick={() => openModal(project)}
       role="button"
       tabIndex={0}
@@ -98,7 +116,9 @@ const ProjectCard = ({ project, idx, openModal }: { project: ProjectCaseStudy, i
           </div>
         ) : (
           <div className="aspect-[16/10] w-full relative overflow-hidden">
-            <img width="400" height="300"
+            <motion.img 
+              variants={imageVariants}
+              width="400" height="300"
               src={project.imageUrl}
               alt={project.title}
               loading="lazy"

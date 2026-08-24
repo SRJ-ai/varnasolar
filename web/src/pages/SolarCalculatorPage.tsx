@@ -170,12 +170,12 @@ export const SolarCalculatorPage: React.FC = () => {
                 </div>
                 <div className="p-6 border-b md:border-b-0 md:border-r border-ink/10">
                   <span className="label-mono text-ink-mute block mb-2">Payback</span>
-                  <span className="font-display font-black text-2xl block flex items-center gap-2"><Clock3 aria-hidden="true" className="w-5 h-5 text-sun" strokeWidth={1.75} />{results.paybackPeriodYears} yrs</span>
+                  <span className="font-display font-black text-2xl flex items-center gap-2"><Clock3 aria-hidden="true" className="w-5 h-5 text-sun" strokeWidth={1.75} />{results.paybackPeriodYears} yrs</span>
                   <span className="text-xs text-ink-mute mt-1 block">ROI {results.roiPercentage}% · 25–30 yr life</span>
                 </div>
                 <div className="p-6">
                   <span className="label-mono text-ink-mute block mb-2">CO₂ Offset (30 yr)</span>
-                  <span className="font-display font-black text-2xl block flex items-center gap-2"><Leaf aria-hidden="true" className="w-5 h-5 text-sun" strokeWidth={1.75} />{results.co2OffsetTonnes30Yr} t</span>
+                  <span className="font-display font-black text-2xl flex items-center gap-2"><Leaf aria-hidden="true" className="w-5 h-5 text-sun" strokeWidth={1.75} />{results.co2OffsetTonnes30Yr} t</span>
                   <span className="text-xs text-ink-mute mt-1 block">{results.treesPlantedEquivalent} trees · {results.coalSavedTonnes30Yr} t coal avoided</span>
                 </div>
               </div>
@@ -186,7 +186,7 @@ export const SolarCalculatorPage: React.FC = () => {
               {/* Lifetime — sun-tint big display */}
               <div className="bg-sun-tint border border-ink/15 p-8 md:p-10 mt-6 flex flex-col gap-6">
                 <div>
-                  <span className="label-mono text-ink-mute block mb-2 flex items-center gap-2"><TrendingUp aria-hidden="true" className="w-4 h-4 text-sun" strokeWidth={1.75} />30-Year Cumulative Savings</span>
+                  <span className="label-mono text-ink-mute flex items-center gap-2 mb-2"><TrendingUp aria-hidden="true" className="w-4 h-4 text-sun" strokeWidth={1.75} />30-Year Cumulative Savings</span>
                   <span className="font-display font-black uppercase tracking-tight leading-none text-[clamp(2.8rem,6vw,4.8rem)] text-ink block">₹{results.lifetimeSavingsINR30Yr.toLocaleString('en-IN')}</span>
                   <span className="text-sm text-ink-soft mt-3 block leading-relaxed">₹{results.annualSavingsINR.toLocaleString('en-IN')}/yr · {results.annualGenerationKWh.toLocaleString('en-IN')} kWh/yr · ~{results.monthlyGenerationKWh.toLocaleString('en-IN')} kWh/mo</span>
                 </div>

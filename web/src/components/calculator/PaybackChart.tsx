@@ -63,39 +63,44 @@ export const PaybackChart: React.FC<PaybackChartProps> = ({ netCostINR, annualSa
       
       <div className="flex-1 min-h-0 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+          <AreaChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
             <defs>
-              <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
-                <stop offset={0} stopColor="#FF4A00" stopOpacity={0.4} />
-                <stop offset={0.9} stopColor="#FF4A00" stopOpacity={0.0} />
+              <linearGradient id="colorCashflow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="var(--sun)" stopOpacity={0.8}/>
+                <stop offset="50%" stopColor="var(--sun)" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="var(--ink-soft)" stopOpacity={0}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1B1B1B" opacity={0.1} />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--ink-mute)" opacity={0.2} />
             <XAxis 
               dataKey="year" 
-              tick={{ fontSize: 10, fill: '#1B1B1B', opacity: 0.5, fontFamily: 'JetBrains Mono' }}
-              tickMargin={12}
-              axisLine={{ stroke: '#1B1B1B', opacity: 0.15 }}
+              axisLine={false}
               tickLine={false}
+              tick={{ fill: 'var(--ink-mute)', fontSize: 12 }}
               minTickGap={30}
             />
             <YAxis 
-              tickFormatter={formatYAxis} 
-              tick={{ fontSize: 10, fill: '#1B1B1B', opacity: 0.5, fontFamily: 'JetBrains Mono' }}
-              tickMargin={12}
+              tickFormatter={formatYAxis}
               axisLine={false}
               tickLine={false}
+              tick={{ fill: 'var(--ink-mute)', fontSize: 12 }}
+              width={60}
             />
-            <Tooltip content={<CustomTooltip />} />
-            <ReferenceLine y={0} stroke="#1B1B1B" strokeOpacity={0.2} strokeDasharray="4 4" />
-            <ReferenceLine x={`Year ${Math.ceil(paybackYear)}`} stroke="#FF4A00" strokeOpacity={0.5} strokeDasharray="2 2" label={{ position: 'top', value: 'Break-even', fill: '#FF4A00', fontSize: 10, fontFamily: 'JetBrains Mono' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'var(--sun)', strokeWidth: 1, strokeDasharray: '5 5' }} />
+            <ReferenceLine y={0} stroke="var(--ink-soft)" strokeDasharray="3 3" opacity={0.5} />
+            
+            {/* Break-even point marker */}
+            <ReferenceLine x={`Year ${Math.ceil(paybackYear)}`} stroke="var(--sun)" opacity={0.3} />
+            
             <Area 
               type="monotone" 
               dataKey="cumulativeCashflow" 
-              stroke="#FF4A00" 
-              strokeWidth={2}
-              fill="url(#splitColor)" 
-              activeDot={{ r: 6, fill: '#FF4A00', stroke: '#F4F3EE', strokeWidth: 2 }}
+              strokeWidth={3}
+              stroke="var(--sun)"
+              fill="url(#colorCashflow)" 
+              fillOpacity={1}
+              animationDuration={1500}
+              activeDot={{ r: 6, fill: 'var(--sun)', stroke: 'var(--paper)', strokeWidth: 2 }}
             />
           </AreaChart>
         </ResponsiveContainer>
