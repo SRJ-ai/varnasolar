@@ -1,1 +1,0 @@
-fix: single-line rooftop hero, horizontal branches scroll, gaps tightened
