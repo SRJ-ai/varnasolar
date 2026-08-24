@@ -6,6 +6,7 @@ import { PageTransition } from '@/components/common/PageTransition';
 import { STATE_TARIFFS_DATA } from '@/data/stateTariffs';
 import { calculateSolarSavings } from '@/utils/calculations';
 import { ConnectionType } from '@/types/solar';
+import { PaybackChart } from '@/components/calculator/PaybackChart';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const rise = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.3 } as const, transition: { duration: 0.55, ease } };
@@ -170,6 +171,9 @@ export const SolarCalculatorPage: React.FC = () => {
                   <span className="text-xs text-ink-mute mt-1 block">{results.treesPlantedEquivalent} trees · {results.coalSavedTonnes30Yr} t coal avoided</span>
                 </div>
               </div>
+
+              {/* Payback Chart */}
+              <PaybackChart netCostINR={results.netCostINR} annualSavingsINR={results.annualSavingsINR} />
 
               {/* Lifetime — sun-tint big display */}
               <div className="bg-sun-tint border border-ink/15 p-8 md:p-10 mt-6 flex flex-col gap-6">
