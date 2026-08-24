@@ -233,9 +233,11 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.8, ease, delay: 0.15 }}
             className="lg:col-span-5 relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden border border-ink/15"
           >
-            <motion.img width="400" height="300"
+            <motion.img 
               style={{ y: heroImgY, scale: 1.15 }}
-              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
+              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?fm=webp&fit=crop&w=800&q=60"
+              srcSet="https://images.unsplash.com/photo-1509391366360-2e959784a276?fm=webp&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1509391366360-2e959784a276?fm=webp&fit=crop&w=1200&q=80 1200w"
+              sizes="(max-width: 768px) 100vw, 50vw"
               alt="Rooftop solar array at golden hour"
               className="w-full h-full object-cover"
               fetchPriority="high"
@@ -565,10 +567,11 @@ export const HomePage: React.FC = () => {
             </Link>
           </div>
 
-          {/* Visual — poster fallback */}
           <div className="lg:col-span-5 relative aspect-[4/3] lg:aspect-[4/3.6] overflow-hidden border border-ink/15 bg-ink">
             <img width="400" height="300"
-              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80"
+              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?fm=webp&fit=crop&w=800&q=60"
+              srcSet="https://images.unsplash.com/photo-1466611653911-95081537e5b7?fm=webp&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1466611653911-95081537e5b7?fm=webp&fit=crop&w=1200&q=80 1200w"
+              sizes="(max-width: 768px) 100vw, 50vw"
               alt="Varna Solar engineering team"
               loading="lazy"
               className="w-full h-full object-cover opacity-90"
