@@ -40,8 +40,8 @@ export const Footer: React.FC = () => {
     <footer className="w-full bg-ink text-paper">
       {/* Logo + giant wordmark */}
       <div className="container-editorial pt-10 pb-10 hairline-b border-white/10 flex flex-col gap-6">
-        <img src="/images/varna-logo.png" alt="Varna Solar" width={140} height={40} className="h-10 w-auto object-contain self-start" loading="lazy" />
-        <p className="font-display font-black uppercase tracking-tightest leading-[0.85] text-paper select-none text-[clamp(3rem,11vw,10.5rem)] text-wrap:balance overflow-wrap:break-word">
+        <img src="/images/varna-logo.png" alt="Varna Solar" className="h-10 w-auto object-contain self-start" loading="lazy" />
+        <p className="font-display font-black uppercase tracking-tightest leading-[0.85] text-paper select-none text-[clamp(3rem,11vw,10.5rem)]">
           Varna<span className="text-sun">.</span>Solar
         </p>
       </div>
@@ -75,12 +75,11 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="group inline-flex items-center gap-1.5 py-1.5 text-sm text-paper/75 hover:text-sun transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2 focus-visible:ring-offset-ink min-w-0"
+                    className="group inline-flex items-center gap-1.5 py-1.5 text-sm text-paper/75 hover:text-sun transition-colors"
                   >
-                    <span className="truncate min-w-0">{link.label}</span>
+                    {link.label}
                     <ArrowUpRight
-                      aria-hidden="true"
-                      className="w-3.5 h-3.5 opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all shrink-0"
+                      className="w-3.5 h-3.5 opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all"
                       strokeWidth={1.75}
                     />
                   </Link>
