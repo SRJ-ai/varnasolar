@@ -379,16 +379,16 @@ export const ContactPage: React.FC = () => {
             <div className="bg-ink text-paper p-6 md:p-8">
               <p className="label-mono text-sun mb-1">Regional Branches — 4 offices</p>
               <p className="text-xs text-paper/50 leading-relaxed mb-6">Vizag · Adilabad · Vempalli · Tandur — DISCOM-coordinated execution across TS & AP</p>
-              <div className="flex flex-col divide-y divide-white/10 border-y border-white/10">
+              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2" style={{ scrollbarWidth: 'none' } as React.CSSProperties}>
                 {regional.map((b) => (
-                  <div key={b.id} className="py-5 flex flex-col gap-2">
+                  <div key={b.id} className="flex-shrink-0 w-[300px] sm:w-[340px] snap-center bg-white/[0.04] border border-white/10 p-5 flex flex-col gap-2">
                     <div className="flex items-center gap-2">
                       <Building2 aria-hidden="true" className="w-4 h-4 text-sun shrink-0" strokeWidth={1.75} />
-                      <span className="font-display font-bold uppercase tracking-tight text-sm">{b.city}</span>
-                      <span className="label-mono text-paper/40 ml-auto text-[10px] border border-white/10 px-2 py-0.5">{b.state === 'Telangana' ? 'TS' : 'AP'}</span>
+                      <span className="font-display font-bold uppercase tracking-tight text-sm truncate min-w-0">{b.city}</span>
+                      <span className="label-mono text-paper/40 ml-auto text-[10px] border border-white/10 px-2 py-0.5 shrink-0">{b.state === 'Telangana' ? 'TS' : 'AP'}</span>
                     </div>
-                    <p className="text-xs text-paper/60 leading-relaxed">{b.address}</p>
-                    <p className="label-mono text-paper/35 text-[10px] leading-relaxed">{b.landmark}</p>
+                    <p className="text-xs text-paper/60 leading-relaxed line-clamp-2">{b.address}</p>
+                    <p className="label-mono text-paper/35 text-[10px] leading-relaxed truncate">{b.landmark}</p>
                     <div className="flex flex-wrap items-center gap-3 mt-1">
                       <span className="label-mono text-paper/40 inline-flex items-center gap-1.5 text-[10px]">
                         <Clock aria-hidden="true" className="w-3 h-3" strokeWidth={1.75} /> {b.workingHours}

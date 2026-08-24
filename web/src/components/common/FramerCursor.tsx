@@ -7,13 +7,13 @@ export const FramerCursor: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only show custom cursor on desktop devices
+    // Only show custom cursor on desktop, respect reduced motion, and only after first move
     if (window.matchMedia("(pointer: coarse)").matches) return;
-    
-    setIsVisible(true);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
+      setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {

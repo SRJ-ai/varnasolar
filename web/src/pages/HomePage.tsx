@@ -197,9 +197,9 @@ export const HomePage: React.FC = () => {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.24 }}
-              className="flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between"
+              className="flex flex-col gap-4"
             >
-              <p className="text-base md:text-lg text-ink-soft leading-[1.7] max-w-[48ch] text-wrap-pretty hyphens-none break-words min-w-0 flex-1">
+              <p className="text-base md:text-lg text-ink-soft leading-[1.7] lg:whitespace-nowrap whitespace-normal hyphens-none break-words min-w-0">
                 Rooftop solar engineered end&#8209;to&#8209;end — design, subsidy paperwork, install, monitoring.
               </p>
               <div className="flex flex-wrap items-center gap-3 shrink-0">
