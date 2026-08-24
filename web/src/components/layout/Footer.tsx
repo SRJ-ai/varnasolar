@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
 
         {columns.map((col) => (
           <nav key={col.heading} aria-label={col.heading}>
-            <h4 className="label-mono text-paper/40 mb-5">{col.heading}</h4>
+            <h3 className="label-mono text-paper/40 mb-5 font-semibold">{col.heading}</h3>
             <ul>
               {col.links.map((link) => (
                 <li key={link.href}>

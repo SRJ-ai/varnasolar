@@ -382,6 +382,7 @@ export const HomePage: React.FC = () => {
                 <Link
                   to={s.href}
                   className="label-mono inline-flex items-center gap-1.5 text-ink hover:text-sun transition-colors mt-1"
+                  aria-label={`Learn more about ${s.title}`}
                 >
                   Learn More <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" strokeWidth={2} />
                 </Link>

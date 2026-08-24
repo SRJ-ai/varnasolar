@@ -10,7 +10,7 @@
 :root {
   --ink: #16150F;
   --ink-soft: #4A483E;
-  --ink-mute: #77746A;
+  --ink-mute: #5C5950;
   --paper: #F4F3EE;
   --paper-deep: #EAE8DF;
   --paper-card: #FBFAF7;
@@ -25,7 +25,7 @@
 .dark {
   --ink: #F4F3EE;
   --ink-soft: #A3A198;
-  --ink-mute: #85837B;
+  --ink-mute: #94928A;
   --paper: #12110C;
   --paper-deep: #16150F;
   --paper-card: #1A1813;
