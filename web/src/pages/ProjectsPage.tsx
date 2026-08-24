@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PageTransition } from '@/components/common/PageTransition';
 import { PROJECTS_DATA } from '@/data/projectsData';
 import { COMPANY_DATA } from '@/data/companyData';
+import { ImageCompareSlider } from '@/components/common/ImageCompareSlider';
 import type { ProjectCaseStudy } from '@/types/project';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -416,18 +417,15 @@ export const ProjectsPage: React.FC = () => {
                       ))}
                   </div>
                 ) : (
-                  <div className="relative aspect-[16/10] w-full overflow-hidden">
-                    <img width="400" height="300"
-                      src={activeProject.imageUrl}
-                      alt={activeProject.title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const img = e.currentTarget as HTMLImageElement;
-                        if (img.src !== FALLBACK_IMG) img.src = FALLBACK_IMG;
-                      }}
+                  <div className="relative w-full">
+                    <ImageCompareSlider 
+                      beforeImage={activeProject.imageUrl} 
+                      afterImage={activeProject.imageUrl} 
+                      beforeLabel="Pre-Install (Simulated)"
+                      afterLabel="Commissioned"
                     />
-                    <span className="absolute top-4 left-4 label-mono bg-paper border border-ink/12 px-2.5 py-1 text-ink-soft">{activeProject.sector}</span>
-                    <span className="absolute top-4 right-12 bg-paper px-3 py-1 label-mono text-ink border border-ink/15">{activeProject.systemCapacity}</span>
+                    <span className="absolute top-4 left-4 label-mono bg-paper border border-ink/12 px-2.5 py-1 text-ink-soft z-20">{activeProject.sector}</span>
+                    <span className="absolute top-4 right-12 bg-paper px-3 py-1 label-mono text-ink border border-ink/15 z-20">{activeProject.systemCapacity}</span>
                   </div>
                 )}
               </div>

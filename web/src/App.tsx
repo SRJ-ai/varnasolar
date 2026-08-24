@@ -4,6 +4,7 @@ import { Layout } from './components/layout/Layout';
 import { SmoothScroll } from './components/common/SmoothScroll';
 import { ScrollProgress } from './components/common/ScrollProgress';
 import { ExitIntentModal } from './components/common/ExitIntentModal';
+import { AppSplash } from './components/common/AppSplash';
 // Page Imports
 import { Suspense, lazy } from 'react';
 import { PageLoader } from './components/common/PageLoader';
@@ -95,6 +96,7 @@ const AnimatedRoutes = () => {
 export function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <AppSplash />
       <ScrollProgress />
       <SmoothScroll>
         <AnimatedRoutes />

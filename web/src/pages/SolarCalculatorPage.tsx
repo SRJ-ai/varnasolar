@@ -3,6 +3,7 @@ import { Zap, MapPin, Home, Building2, Calculator, ArrowRight, Leaf, Clock3, Tre
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/common/PageTransition';
+import { HouseVisualizer } from '@/components/calculator/HouseVisualizer';
 import { STATE_TARIFFS_DATA } from '@/data/stateTariffs';
 import { calculateSolarSavings } from '@/utils/calculations';
 import { ConnectionType } from '@/types/solar';
@@ -124,6 +125,11 @@ export const SolarCalculatorPage: React.FC = () => {
                 <div className="hairline-t pt-5 text-xs text-ink-mute leading-relaxed">
                   Roof needed: ~80–100 sq.ft / kWp shadow-free · {roofArea.toLocaleString('en-IN')} sq.ft for recommended system. 3D shadow audit refines it.
                 </div>
+              </div>
+
+              {/* Dynamic House Visualizer */}
+              <div className="mt-8">
+                <HouseVisualizer systemSizeKW={results.systemSizeKW} />
               </div>
             </div>
           </motion.div>

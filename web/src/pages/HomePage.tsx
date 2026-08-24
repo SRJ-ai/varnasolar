@@ -28,6 +28,7 @@ import { useScroll, useTransform } from 'framer-motion';
 import { InfiniteMarquee } from '@/components/common/InfiniteMarquee';
 import { ImpactTicker } from '@/components/common/ImpactTicker';
 import { SolarRoof3D } from '@/components/common/SolarRoof3D';
+import { Magnetic } from '@/components/common/Magnetic';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -212,12 +213,16 @@ export const HomePage: React.FC = () => {
                 {t('hero.subhead')}
               </p>
               <div className="flex flex-wrap items-center gap-3 shrink-0">
-                <Link to="/solar-calculator" className="btn-outline-premium">
-                  {t('hero.btnCalculate')}
-                </Link>
-                <button onClick={() => window.dispatchEvent(new Event('open-quote-modal'))} className="btn-premium">
-                  {t('hero.btnSurvey')} <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={2} />
-                </button>
+                <Magnetic intensity={0.4}>
+                  <Link to="/solar-calculator" className="btn-outline-premium block">
+                    {t('hero.btnCalculate')}
+                  </Link>
+                </Magnetic>
+                <Magnetic intensity={0.4}>
+                  <button onClick={() => window.dispatchEvent(new Event('open-quote-modal'))} className="btn-premium block">
+                    {t('hero.btnSurvey')} <ArrowRight aria-hidden="true" className="w-4 h-4 inline-block" strokeWidth={2} />
+                  </button>
+                </Magnetic>
               </div>
             </motion.div>
           </div>
