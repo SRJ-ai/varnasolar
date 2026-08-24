@@ -33,7 +33,7 @@ export const IndustrialSolarPage: React.FC = () => {
     <PageTransition>
       {/* ═══ HERO ═══ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-10 pb-10 lg:min-h-[calc(100dvh-101px)]">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-8 pb-8">
           <div className="lg:col-span-7 flex flex-col justify-between gap-6 min-w-0">
             <div>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="label-mono text-sun mb-6">MW-scale captive — 11kV/33kV HT · zero-export · DG hybrid</motion.p>
