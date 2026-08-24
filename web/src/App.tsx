@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { SmoothScroll } from './components/common/SmoothScroll';
+import { WhatsAppWidget } from './components/common/WhatsAppWidget';
+import { ScrollProgress } from './components/common/ScrollProgress';
 // Page Imports
 import { HomePage } from './pages/HomePage';
 import { AboutUsPage } from './pages/AboutUsPage';
@@ -90,8 +92,10 @@ const AnimatedRoutes = () => {
 export function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollProgress />
       <SmoothScroll>
         <AnimatedRoutes />
+        <WhatsAppWidget />
       </SmoothScroll>
     </BrowserRouter>
   );
