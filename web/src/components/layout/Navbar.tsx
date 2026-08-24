@@ -148,9 +148,9 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
 
           {/* Actions */}
           <div className="hidden lg:flex items-center gap-4 shrink-0">
-            <button type="button" onClick={onOpenQuoteModal} className="btn-premium !py-2.5 !px-5 text-[12px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2">
+            <Link to="/contact" className="btn-premium !py-2.5 !px-5 text-[12px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2">
               Get a Quote
-            </button>
+            </Link>
           </div>
 
           {/* Mobile toggle */}

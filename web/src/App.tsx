@@ -62,7 +62,7 @@ const AnimatedRoutes = () => {
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <SmoothScroll>
         <AnimatedRoutes />
       </SmoothScroll>
