@@ -30,7 +30,7 @@ export const AboutUsPage: React.FC = () => {
     <PageTransition>
       {/* ═══ HERO ═══ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end pt-10 lg:pt-14 pb-10 lg:pb-12">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center pt-10 lg:pt-14 pb-10 lg:pb-12">
           <div className="lg:col-span-7 flex flex-col gap-8">
             <div>
               <motion.div

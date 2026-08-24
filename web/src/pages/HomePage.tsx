@@ -152,7 +152,7 @@ export const HomePage: React.FC = () => {
     <PageTransition>
       {/* ═══════════════════ 1 — HERO ═══════════════════ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-8 pb-8">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-8 pb-8">
           {/* Copy */}
           <div className="lg:col-span-7 flex flex-col gap-6 min-w-0">
             <div>

@@ -33,7 +33,7 @@ export const AgricultureSolarPage: React.FC = () => {
     <PageTransition>
       {/* ═══ HERO ═══ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end pt-10 pb-10 lg:min-h-[calc(100dvh-88px)]">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pt-10 pb-10">
           <div className="lg:col-span-7 flex flex-col justify-between gap-6">
             <div>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="label-mono text-sun mb-6">PM-KUSUM — 60% subsidy · 3–20 HP · Telangana &amp; AP</motion.p>

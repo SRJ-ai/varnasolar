@@ -33,7 +33,7 @@ export const ResidentialSolarPage: React.FC = () => {
     <PageTransition>
       {/* ═══ HERO — Solar that pays you. ═══ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end pt-14 pb-12 lg:min-h-[calc(100dvh-101px)]">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center pt-14 pb-12">
           <div className="lg:col-span-7 flex flex-col justify-between gap-10">
             <div>
               <motion.p
