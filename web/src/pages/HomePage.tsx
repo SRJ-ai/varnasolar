@@ -360,7 +360,7 @@ export const HomePage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.5, ease, delay: i * 0.06 }}
-                className="group bg-paper-card border border-ink/12 p-6 md:p-8 flex flex-col gap-5 hover:bg-white transition-colors"
+                className="group bg-paper-card border border-ink/12 p-6 md:p-8 flex flex-col gap-5 hover:bg-white dark:hover:bg-white/5 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="w-11 h-11 border border-ink/12 bg-paper-deep flex items-center justify-center">
@@ -445,7 +445,7 @@ export const HomePage: React.FC = () => {
               >
                 <Link
                   to={scheme.href}
-                  className="group grid grid-cols-1 md:grid-cols-[180px_1fr_auto] gap-4 md:gap-8 py-7 md:py-8 border-b border-ink/12 hover:bg-white transition-colors px-2 -mx-2 items-start"
+                  className="group grid grid-cols-1 md:grid-cols-[180px_1fr_auto] gap-4 md:gap-8 py-7 md:py-8 border-b border-ink/12 hover:bg-white dark:hover:bg-white/5 transition-colors px-2 -mx-2 items-start"
                 >
                   <span className="label-mono text-sun shrink-0 pt-0.5">{scheme.code}</span>
                   <div className="flex flex-col gap-2">
@@ -635,7 +635,7 @@ export const HomePage: React.FC = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.5, ease, delay: i * 0.07 }}
               >
-                <Link to="/projects" className="group block bg-paper-card border border-ink/12 overflow-hidden hover:bg-white transition-colors">
+                <Link to="/projects" className="group block bg-paper-card border border-ink/12 overflow-hidden hover:bg-white dark:hover:bg-white/5 transition-colors">
                   <div className="relative aspect-[16/10] overflow-hidden border-b border-ink/12">
                     <img width="400" height="300"
                       src={project.imageUrl}

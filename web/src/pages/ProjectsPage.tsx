@@ -74,7 +74,7 @@ const ProjectCard = ({ project, idx, openModal }: { project: ProjectCaseStudy, i
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="group border-r border-b border-ink/12 flex flex-col bg-paper-card hover:bg-white transition-colors cursor-pointer text-left perspective-1000"
+      className="group border-r border-b border-ink/12 flex flex-col bg-paper-card hover:bg-white dark:hover:bg-white/5 transition-colors cursor-pointer text-left perspective-1000"
     >
       <div className="relative overflow-hidden w-full border-b border-ink/12 bg-paper-deep" style={{ transform: "translateZ(20px)" }}>
         {dual ? (
