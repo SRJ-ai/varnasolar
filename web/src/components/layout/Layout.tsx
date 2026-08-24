@@ -5,6 +5,7 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { FloatingActionHub } from '../shared/FloatingActionHub';
 import { ChatbotPanel } from '../shared/ChatbotPanel';
+import { CustomCursor } from '../common/CustomCursor';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ export const Layout: React.FC = () => {
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-ink focus:text-paper focus:px-4 focus:py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sun">
         Skip to main content
       </a>
+      <CustomCursor />
       <ScrollToTop />
       
       {/* 1. Header Topbar */}

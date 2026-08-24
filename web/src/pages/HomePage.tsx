@@ -24,6 +24,10 @@ import { PageTransition } from '@/components/common/PageTransition';
 import { COMPANY_DATA } from '@/data/companyData';
 import { PROJECTS_DATA } from '@/data/projectsData';
 import { useTranslation } from 'react-i18next';
+import { useScroll, useTransform } from 'framer-motion';
+import { InfiniteMarquee } from '@/components/common/InfiniteMarquee';
+import { ImpactTicker } from '@/components/common/ImpactTicker';
+import { SolarRoof3D } from '@/components/common/SolarRoof3D';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -145,6 +149,10 @@ const steps = [
 
 export const HomePage: React.FC = () => {
   const { t } = useTranslation();
+  
+  // Parallax for Hero Image
+  const { scrollY } = useScroll();
+  const heroImgY = useTransform(scrollY, [0, 1000], [0, 250]);
   const featuredProjects = PROJECTS_DATA.filter((p) => p.isFeatured).slice(0, 3);
   const hq = COMPANY_DATA.branches.find((b) => b.isHQ);
   const regionalBranches = COMPANY_DATA.branches.filter((b) => !b.isHQ);
@@ -214,14 +222,14 @@ export const HomePage: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Hero image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease, delay: 0.15 }}
             className="lg:col-span-5 relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden border border-ink/15"
           >
-            <img width="400" height="300"
+            <motion.img width="400" height="300"
+              style={{ y: heroImgY, scale: 1.15 }}
               src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
               alt="Rooftop solar array at golden hour"
               className="w-full h-full object-cover"
@@ -256,6 +264,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <InfiniteMarquee />
 
       {/* ═══════════════════ 2 — TRUSTED BY ═══════════════════ */}
       <section className="w-full bg-paper-deep hairline-b py-12 md:py-16 overflow-hidden">
@@ -319,24 +329,26 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {impactMetrics.map((m, i) => (
-              <motion.div
-                key={m.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, ease, delay: i * 0.07 }}
-                className="bg-paper-card border border-ink/12 p-6 md:p-7 flex flex-col gap-3"
-              >
-                <span className="font-display font-black uppercase tracking-tightest text-3xl md:text-4xl text-sun leading-none">
-                  {m.value}
-                </span>
-                <span className="label-mono text-ink">{m.label}</span>
-                <span className="text-xs md:text-sm text-ink-soft leading-relaxed">{m.note}</span>
-              </motion.div>
-            ))}
+            <ImpactTicker target={720} label="Annual Group Turnover" prefix="₹" suffix=" Cr+" />
+            <ImpactTicker target={25} label="Certified Solar Engineers" suffix="+" />
+            <ImpactTicker target={1500} label="Solar Installations" suffix="+" />
+            <ImpactTicker target={15} label="Cumulative Capacity" suffix=" MW+" decimals={1} />
           </div>
         </div>
+      </section>
+
+      {/* ═══════════════════ 3.5 — 3D INTERACTIVE ROOF ═══════════════════ */}
+      <section className="w-full py-16 md:py-24 bg-ink text-paper overflow-hidden">
+        <div className="container-editorial mb-10">
+          <p className="label-mono text-sun">Engineering Precision</p>
+          <h2 className="headline-section text-[clamp(1.9rem,4.5vw,3.75rem)] max-w-3xl">
+            Interactive 3D <span className="text-sun">Solar Layouts.</span>
+          </h2>
+          <p className="text-base md:text-lg text-ink-mute max-w-2xl leading-relaxed mt-4">
+            Drag to rotate the roof. Every project receives a millimeter-perfect 3D shadow analysis before installation.
+          </p>
+        </div>
+        <SolarRoof3D />
       </section>
 
       {/* ═══════════════════ 4 — WHAT WE DO ═══════════════════ */}

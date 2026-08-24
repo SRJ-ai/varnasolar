@@ -5,23 +5,26 @@ import { SmoothScroll } from './components/common/SmoothScroll';
 import { ScrollProgress } from './components/common/ScrollProgress';
 import { ExitIntentModal } from './components/common/ExitIntentModal';
 // Page Imports
-import { HomePage } from './pages/HomePage';
-import { AboutUsPage } from './pages/AboutUsPage';
-import { WhyChooseUsPage } from './pages/WhyChooseUsPage';
-import { ResidentialSolarPage } from './pages/ResidentialSolarPage';
-import { CommercialSolarPage } from './pages/CommercialSolarPage';
-import { IndustrialSolarPage } from './pages/IndustrialSolarPage';
-import { AgricultureSolarPage } from './pages/AgricultureSolarPage';
-import { PMSuryaGharPage } from './pages/PMSuryaGharPage';
-import { PMKusumPage } from './pages/PMKusumPage';
-import { SolarCalculatorPage } from './pages/SolarCalculatorPage';
-import { ProjectsPage } from './pages/ProjectsPage';
-import { BlogsPage } from './pages/BlogsPage';
-import { BlogPostPage } from './pages/BlogPostPage';
-import { ContactPage } from './pages/ContactPage';
-import { AdminLoginPage } from './pages/AdminLoginPage';
-import { AdminDashboardPage } from './pages/AdminDashboardPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { Suspense, lazy } from 'react';
+import { PageLoader } from './components/common/PageLoader';
+
+const HomePage = lazy(() => import('./pages/HomePage').then(module => ({ default: module.HomePage })));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage').then(module => ({ default: module.AboutUsPage })));
+const WhyChooseUsPage = lazy(() => import('./pages/WhyChooseUsPage').then(module => ({ default: module.WhyChooseUsPage })));
+const ResidentialSolarPage = lazy(() => import('./pages/ResidentialSolarPage').then(module => ({ default: module.ResidentialSolarPage })));
+const CommercialSolarPage = lazy(() => import('./pages/CommercialSolarPage').then(module => ({ default: module.CommercialSolarPage })));
+const IndustrialSolarPage = lazy(() => import('./pages/IndustrialSolarPage').then(module => ({ default: module.IndustrialSolarPage })));
+const AgricultureSolarPage = lazy(() => import('./pages/AgricultureSolarPage').then(module => ({ default: module.AgricultureSolarPage })));
+const PMSuryaGharPage = lazy(() => import('./pages/PMSuryaGharPage').then(module => ({ default: module.PMSuryaGharPage })));
+const PMKusumPage = lazy(() => import('./pages/PMKusumPage').then(module => ({ default: module.PMKusumPage })));
+const SolarCalculatorPage = lazy(() => import('./pages/SolarCalculatorPage').then(module => ({ default: module.SolarCalculatorPage })));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(module => ({ default: module.ProjectsPage })));
+const BlogsPage = lazy(() => import('./pages/BlogsPage').then(module => ({ default: module.BlogsPage })));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage').then(module => ({ default: module.BlogPostPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(module => ({ default: module.ContactPage })));
+const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage').then(module => ({ default: module.AdminLoginPage })));
+const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage').then(module => ({ default: module.AdminDashboardPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -57,7 +60,7 @@ const AnimatedRoutes = () => {
 
   return (
     <AnimatePresence mode="wait">
-      <Routes key={location.pathname} location={location}>
+      <Suspense fallback={<PageLoader />}><Routes key={location.pathname} location={location}>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
@@ -84,7 +87,7 @@ const AnimatedRoutes = () => {
           <Route path="/terms" element={<Navigate to="/contact" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-      </Routes>
+      </Routes></Suspense>
     </AnimatePresence>
   );
 };
