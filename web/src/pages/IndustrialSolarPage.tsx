@@ -37,7 +37,7 @@ export const IndustrialSolarPage: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col justify-between gap-6 min-w-0">
             <div>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="label-mono text-sun mb-6">MW-scale captive — 11kV/33kV HT · zero-export · DG hybrid</motion.p>
-              <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.08 }} className="headline-hero text-[clamp(3rem,8vw,7rem)]">
+              <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.08 }} className="headline-hero text-[clamp(2.2rem,6vw,5.5rem)]">
                 Megawatts on<br /><span className="text-sun">your roofline.</span>
               </motion.h1>
             </div>
