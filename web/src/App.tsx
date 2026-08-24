@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { SmoothScroll } from './components/common/SmoothScroll';
+import { FramerCursor } from './components/common/FramerCursor';
 // Page Imports
 import { HomePage } from './pages/HomePage';
 import { AboutUsPage } from './pages/AboutUsPage';
@@ -63,6 +64,7 @@ const AnimatedRoutes = () => {
 export function App() {
   return (
     <BrowserRouter>
+      <FramerCursor />
       <SmoothScroll>
         <AnimatedRoutes />
       </SmoothScroll>

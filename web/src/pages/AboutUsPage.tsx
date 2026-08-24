@@ -54,14 +54,13 @@ export const AboutUsPage: React.FC = () => {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease, delay: 0.08 }}
-                className="headline-hero text-[clamp(2.8rem,7.5vw,6.5rem)]"
+                className="headline-hero text-[clamp(2.6rem,6vw,5.2rem)] text-wrap-balance leading-[0.92] overflow-visible pb-2"
               >
                 Trusted rooftop
                 <br />
                 solar partner
                 <br />
-                <span className="text-sun">for homes</span>
-                <br />&amp; businesses.
+                <span className="text-sun">for homes</span> &amp; businesses.
               </motion.h1>
             </div>
 

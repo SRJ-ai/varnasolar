@@ -125,7 +125,7 @@ export const IndustrialSolarPage: React.FC = () => {
               </ul>
               <div className="mt-6 p-5 bg-sun-tint border border-ink/10 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
                 <p className="text-sm text-ink-soft leading-relaxed max-w-[52ch]">Existing DG sets stay — synchroniser blends solar + diesel seamlessly. CAPEX or OPEX (RESCO) models available.</p>
-                <button onClick={() => window.dispatchEvent(new Event('open-quote-modal'))} className="btn-premium shrink-0">Book a load study <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={1.75} /></button>
+                <Link to="/contact" className="btn-premium shrink-0">Book a load study <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={1.75} /></Link>
               </div>
             </div>
           </div>
