@@ -164,7 +164,7 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.5, ease }}
                 className="label-mono text-sun mb-5"
               >
-                Turnkey solar EPC — homes to megawatt scale
+                {t('hero.prehead')}
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 32 }}
@@ -205,10 +205,10 @@ export const HomePage: React.FC = () => {
               </p>
               <div className="flex flex-wrap items-center gap-3 shrink-0">
                 <Link to="/solar-calculator" className="btn-outline-premium">
-                  Calculate Your Savings
+                  {t('hero.btnCalculate')}
                 </Link>
                 <button onClick={() => window.dispatchEvent(new Event('open-quote-modal'))} className="btn-premium">
-                  Get Free Site Survey <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={2} />
+                  {t('hero.btnSurvey')} <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={2} />
                 </button>
               </div>
             </motion.div>
