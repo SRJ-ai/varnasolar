@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, ArrowUpRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { MobileDrawer } from './MobileDrawer';
 
 interface NavDropdownItem {
@@ -17,7 +16,6 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { t } = useTranslation();
 
   useEffect(() => {
     let ticking = false;
@@ -49,15 +47,15 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
   };
 
   const solarSolutionsItems: NavDropdownItem[] = [
-    { title: t('nav.residential_solar'), href: '/residential-solar', description: t('nav.residential_desc') },
-    { title: t('nav.commercial_solar'), href: '/commercial-solar', description: t('nav.commercial_desc') },
-    { title: t('nav.industrial_solar'), href: '/industrial-solar', description: t('nav.industrial_desc') },
-    { title: t('nav.agricultural_solar'), href: '/agriculture-solar', description: t('nav.agricultural_desc') },
+    { title: 'Residential Solar', href: '/residential-solar', description: 'Up to 10kW rooftop systems for homes & villas.' },
+    { title: 'Commercial Solar', href: '/commercial-solar', description: 'CapEx & OPEX models for offices & hospitals.' },
+    { title: 'Industrial Solar', href: '/industrial-solar', description: 'MW-scale installations for factories & sheds.' },
+    { title: 'Agricultural Pumps', href: '/agriculture-solar', description: 'PM KUSUM subsidised solar water pumps.' },
   ];
 
   const govtSchemesItems: NavDropdownItem[] = [
-    { title: t('nav.pm_surya_ghar'), href: '/pm-surya-ghar-yojana', description: t('nav.pm_surya_desc') },
-    { title: t('nav.pm_kusum'), href: '/pm-kusum-scheme', description: t('nav.pm_kusum_desc') },
+    { title: 'PM Surya Ghar', href: '/pm-surya-ghar-yojana', description: 'Up to ₹78,000 residential rooftop subsidy.' },
+    { title: 'PM KUSUM Scheme', href: '/pm-kusum-scheme', description: '60% subsidy for farmers on solar pumps.' },
   ];
 
   const linkCls =
@@ -114,8 +112,8 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
 
           {/* Desktop nav — HOME | ABOUT US | SOLAR SOLUTIONS | GOVT SCHEMES | WHY CHOOSE US | PROJECTS | BLOGS */}
           <div className="hidden lg:flex items-center gap-6 relative">
-            <Link to="/" className={topLinkCls(location.pathname === '/')}>{t('nav.home')}</Link>
-            <Link to="/about-us" className={topLinkCls(location.pathname === '/about-us')}>{t('nav.about')}</Link>
+            <Link to="/" className={topLinkCls(location.pathname === '/')}>Home</Link>
+            <Link to="/about-us" className={topLinkCls(location.pathname === '/about-us')}>About Us</Link>
 
             <div
               className="relative"
@@ -138,13 +136,13 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
               onBlur={handleMouseLeave}
             >
               <button aria-expanded={activeDropdown === 'govt'} aria-haspopup="true" className={`${topLinkCls(activeDropdown === 'govt')} flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2`}>
-                {t('nav.schemes')} <span aria-hidden="true" className={`transition-transform text-xs ${activeDropdown === 'govt' ? 'rotate-180' : ''}`}>^</span>
+                Govt Schemes <span aria-hidden="true" className={`transition-transform text-xs ${activeDropdown === 'govt' ? 'rotate-180' : ''}`}>^</span>
               </button>
               <DropdownPanel items={govtSchemesItems} isOpen={activeDropdown === 'govt'} />
             </div>
 
             <Link to="/why-choose-us" className={topLinkCls(location.pathname === '/why-choose-us')}>Why Choose Us</Link>
-            <Link to="/projects" className={topLinkCls(location.pathname === '/projects')}>{t('nav.projects')}</Link>
+            <Link to="/projects" className={topLinkCls(location.pathname === '/projects')}>Projects</Link>
             <Link to="/blogs" className={topLinkCls(location.pathname === '/blogs')}>Blogs</Link>
           </div>
 
