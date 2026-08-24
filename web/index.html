@@ -48,7 +48,16 @@
         @keyframes fs-spin { to { transform: rotate(360deg); } }
         @media (prefers-color-scheme: dark) { .fs-loader { background-color: #1E1C15; } .fs-spinner { border-color: rgba(255, 255, 255, 0.1); border-top-color: #FF4D00; } }
       </style>
-      <div class="fs-loader"><div class="fs-spinner"></div></div>
+      <div class="fs-loader">
+        <div style="display:flex; flex-direction:column; align-items:center; gap: 16px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2v20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+          <span style="font-family: sans-serif; font-weight: bold; font-size: 14px; letter-spacing: 2px;">VARNA SOLAR</span>
+        </div>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -294,7 +294,7 @@ export const HomePage: React.FC = () => {
                     title={client.name}
                   >
                     {client.logoUrl ? (
-                      <img width="400" height="300"
+                      <img width="140" height="40"
                         src={client.logoUrl}
                         alt={client.name}
                         loading="lazy"
