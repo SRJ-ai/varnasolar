@@ -86,7 +86,7 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
                 </div>
                 <p className="text-xs text-ink-mute mt-0.5">{item.description}</p>
               </div>
-              <ArrowUpRight aria-hidden="true" className="w-4 h-4 mt-0.5 text-ink/30 group-hover:text-sun group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform transition-colors shrink-0" />
+              <ArrowUpRight aria-hidden="true" className="w-4 h-4 mt-0.5 text-ink/30 group-hover:text-sun group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-all shrink-0" />
             </Link>
           ))}
         </motion.div>

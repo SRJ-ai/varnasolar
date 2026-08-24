@@ -12,10 +12,10 @@ export const Topbar: React.FC = () => {
         </p>
         <div className="flex items-center gap-3 sm:gap-6 mx-auto md:mx-0 flex-wrap justify-center">
           <a
-            href={`mailto:${COMPANY_DATA.contact.email}`}
+            href={`mailto:${COMPANY_DATA.contact.infoEmail}`}
             className="label-mono text-paper hover:text-sun transition-colors"
           >
-            {COMPANY_DATA.contact.email}
+            {COMPANY_DATA.contact.infoEmail}
           </a>
           <span className="text-paper/30 hidden sm:inline">|</span>
           <a
