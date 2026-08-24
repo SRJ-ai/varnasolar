@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { SmoothScroll } from './components/common/SmoothScroll';
-import { WhatsAppWidget } from './components/common/WhatsAppWidget';
 import { ScrollProgress } from './components/common/ScrollProgress';
 // Page Imports
 import { HomePage } from './pages/HomePage';
@@ -95,7 +94,6 @@ export function App() {
       <ScrollProgress />
       <SmoothScroll>
         <AnimatedRoutes />
-        <WhatsAppWidget />
       </SmoothScroll>
     </BrowserRouter>
   );
