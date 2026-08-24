@@ -33,8 +33,8 @@ export const IndustrialSolarPage: React.FC = () => {
     <PageTransition>
       {/* ═══ HERO ═══ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end pt-14 pb-12 lg:min-h-[calc(100dvh-101px)]">
-          <div className="lg:col-span-7 flex flex-col justify-between gap-10">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-10 pb-10 lg:min-h-[calc(100dvh-101px)]">
+          <div className="lg:col-span-7 flex flex-col justify-between gap-6 min-w-0">
             <div>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="label-mono text-sun mb-6">MW-scale captive — 11kV/33kV HT · zero-export · DG hybrid</motion.p>
               <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.08 }} className="headline-hero text-[clamp(3rem,8vw,7rem)]">
@@ -70,7 +70,7 @@ export const IndustrialSolarPage: React.FC = () => {
       </section>
 
       {/* ═══ HT SPECS — hairline rows ═══ */}
-      <section className="w-full py-24 md:py-32">
+      <section className="w-full py-16 md:py-20">
         <div className="container-editorial">
           <h2 className="headline-section text-[clamp(2.2rem,5.5vw,4.5rem)] mb-6 md:mb-10 max-w-4xl">High-tension<br /><span className="text-sun">infrastructure.</span></h2>
           <p className="text-ink-soft max-w-xl leading-relaxed mb-14 md:mb-20">Heavy engineering specified for continuous industrial duty cycles — not domestic hardware scaled up.</p>
@@ -93,8 +93,8 @@ export const IndustrialSolarPage: React.FC = () => {
       </section>
 
       {/* ═══ ENGINEERING DEEP DIVE ═══ */}
-      <section className="w-full bg-paper-deep hairline-t hairline-b">
-        <div className="container-editorial py-24 md:py-32">
+      <section className="w-full bg-paper-deep hairline-y">
+        <div className="container-editorial py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
             <div className="lg:col-span-5">
               <h2 className="headline-section text-[clamp(2.2rem,5.5vw,4rem)]">How we<br /><span className="text-sun">engineer it.</span></h2>
@@ -133,7 +133,7 @@ export const IndustrialSolarPage: React.FC = () => {
       </section>
 
       {/* ═══ CAPACITY + DG STRIP ═══ */}
-      <section className="w-full py-24 md:py-32">
+      <section className="w-full py-16 md:py-20">
         <div className="container-editorial grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1 relative aspect-[4/3] overflow-hidden border border-ink/15">
             <img width="400" height="300" src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80" alt="Utility-scale solar power infrastructure" loading="lazy" className="w-full h-full object-cover" />
@@ -164,7 +164,7 @@ export const IndustrialSolarPage: React.FC = () => {
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="w-full bg-sun">
-        <div className="container-editorial py-24 md:py-36 text-center flex flex-col items-center gap-10">
+        <div className="container-editorial py-16 md:py-20 text-center flex flex-col items-center gap-10">
           <h2 className="headline-hero text-[clamp(2.6rem,8vw,7rem)] text-ink">Run production<br />on sunlight.</h2>
           <p className="text-base md:text-xl text-ink/80 max-w-xl leading-relaxed">HT-grade engineering. Fixed-cost power for 25 years. Phased MW rollout to match your load.</p>
           <div className="flex flex-col sm:flex-row gap-4">

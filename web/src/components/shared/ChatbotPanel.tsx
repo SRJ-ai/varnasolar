@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X } from 'lucide-react';
 import {
   CHATBOT_QUICK_TOPICS,
@@ -34,6 +34,7 @@ function stripMarkdown(md: string): string {
 }
 
 export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ isOpen, onClose }) => {
+  const shouldReduceMotion = useReducedMotion();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -89,10 +90,11 @@ export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ isOpen, onClose }) =
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 16 }}
-          transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+          initial={shouldReduceMotion ? { opacity: 1, transform: 'translateY(0) scale(1)' } : { opacity: 0, transform: 'translateY(16px) scale(0.97)' }}
+          animate={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
+          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, transform: 'translateY(16px) scale(0.97)' }}
+          transition={shouldReduceMotion ? { duration: 0.01 } : { duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+          style={{ transformOrigin: 'bottom right' } as React.CSSProperties}
           className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-24px)] max-h-[560px] bg-paper-card border border-ink/15 shadow-editorial flex flex-col rounded-none overflow-hidden"
           role="dialog"
           aria-label="Ask Varna chatbot"

@@ -25,14 +25,14 @@ export const PMSuryaGharPage: React.FC = () => {
   return (
     <PageTransition>
       {/* ═══ HERO ═══ */}
-      <section className="w-full">
-        <div className="container-editorial pt-16 pb-16 md:pt-24 md:pb-20">
+      <section className="w-full overflow-visible">
+        <div className="container-editorial pt-16 pb-16 md:pt-24 md:pb-20 overflow-visible">
           <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease }} className="flex items-center gap-2 mb-8">
             <Link to="/" className="label-mono text-ink-mute hover:text-sun transition-colors">Home</Link>
             <span className="label-mono text-ink/30">/</span>
             <span className="label-mono text-sun">PM Surya Ghar Yojana</span>
           </motion.nav>
-          <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.08 }} className="headline-hero text-[clamp(3rem,8vw,7.5rem)] max-w-5xl">
+          <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.08 }} className="headline-hero text-[clamp(3rem,8vw,7rem)] max-w-5xl leading-[0.90] overflow-visible pt-2 text-wrap-balance">
             PM Surya Ghar<br /><span className="text-sun">Muft Bijli.</span>
           </motion.h1>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease, delay: 0.2 }} className="mt-10 flex flex-col md:flex-row md:items-end gap-8 md:gap-14">

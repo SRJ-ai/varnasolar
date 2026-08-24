@@ -67,10 +67,11 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 6 }}
-          transition={{ duration: 0.18, ease: 'easeOut' }}
+          initial={{ opacity: 0, transform: 'translateY(8px) scale(0.97)' }}
+          animate={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
+          exit={{ opacity: 0, transform: 'translateY(6px) scale(0.97)' }}
+          transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
+          style={{ transformOrigin: 'top left' } as React.CSSProperties}
           className="absolute top-full left-0 mt-2 w-[380px] bg-paper border border-ink/15 shadow-editorial z-50"
         >
           {items.map((item, idx) => (

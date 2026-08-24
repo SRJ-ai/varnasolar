@@ -70,7 +70,7 @@ export const AgricultureSolarPage: React.FC = () => {
       </section>
 
       {/* ═══ PUMP SIZING TABLE ═══ */}
-      <section className="w-full py-24 md:py-32">
+      <section className="w-full py-16 md:py-20">
         <div className="container-editorial">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 md:mb-16">
             <h2 className="headline-section text-[clamp(2.2rem,5.5vw,4.5rem)]">Right pump<br /><span className="text-sun">for your bore.</span></h2>
@@ -152,8 +152,8 @@ export const AgricultureSolarPage: React.FC = () => {
       </section>
 
       {/* ═══ FIELD ENGINEERING SPLIT ═══ */}
-      <section className="w-full bg-paper-deep hairline-t">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 py-24 md:py-32 items-center">
+      <section className="w-full bg-paper-deep hairline-y">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 py-16 md:py-20 items-center">
           <div className="order-2 lg:order-1 relative aspect-[4/3] overflow-hidden border border-ink/15">
             <img width="400" height="300" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Irrigated farmland at golden hour" loading="lazy" className="w-full h-full object-cover" />
             <div className="absolute -bottom-px -right-px bg-sun px-6 py-4"><span className="font-display font-black uppercase tracking-tight text-lg text-paper">Zero diesel</span></div>
@@ -183,7 +183,7 @@ export const AgricultureSolarPage: React.FC = () => {
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="w-full bg-sun">
-        <div className="container-editorial py-24 md:py-36 text-center flex flex-col items-center gap-10">
+        <div className="container-editorial py-16 md:py-20 text-center flex flex-col items-center gap-10">
           <h2 className="headline-hero text-[clamp(2.6rem,8vw,7rem)] text-ink">Irrigate on sun,<br />not diesel.</h2>
           <p className="text-base md:text-xl text-ink/80 max-w-xl leading-relaxed">60% subsidy filed for you. Daytime water, every day — across Telangana &amp; AP.</p>
           <div className="flex flex-col sm:flex-row gap-4">

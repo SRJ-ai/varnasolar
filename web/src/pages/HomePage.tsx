@@ -152,9 +152,9 @@ export const HomePage: React.FC = () => {
     <PageTransition>
       {/* ═══════════════════ 1 — HERO ═══════════════════ */}
       <section className="w-full relative overflow-hidden">
-        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end pt-10 lg:pt-14 pb-10 lg:pb-12 lg:min-h-[calc(100dvh-101px)]">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-10 pb-10 lg:min-h-[calc(100dvh-101px)]">
           {/* Copy */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
+          <div className="lg:col-span-7 flex flex-col gap-6 min-w-0">
             <div>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -199,7 +199,7 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.6, ease, delay: 0.24 }}
               className="flex flex-col gap-4"
             >
-              <p className="text-base md:text-lg text-ink-soft leading-[1.7] lg:whitespace-nowrap whitespace-normal hyphens-none break-words min-w-0">
+              <p className="text-base md:text-lg text-ink-soft leading-[1.7] whitespace-normal lg:whitespace-nowrap lg:max-w-none max-w-none hyphens-none break-normal overflow-visible">
                 Rooftop solar engineered end&#8209;to&#8209;end — design, subsidy paperwork, install, monitoring.
               </p>
               <div className="flex flex-wrap items-center gap-3 shrink-0">

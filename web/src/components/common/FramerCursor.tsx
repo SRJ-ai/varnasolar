@@ -1,67 +1,87 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export const FramerCursor: React.FC = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [pos, setPos] = useState({ x: -100, y: -100 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Only show custom cursor on desktop, respect reduced motion, and only after first move
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      setIsVisible(true);
+    const onMove = (e: MouseEvent) => {
+      setPos({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      // Check if the target or its parents are clickable elements
-      if (target.closest('a') || target.closest('button') || target.closest('input') || target.closest('.cursor-pointer')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
+    const onOver = (e: MouseEvent) => {
+      const t = e.target as HTMLElement;
+      const hover = !!t.closest('a, button, input, select, textarea, [role="button"], .cursor-pointer');
+      setIsHovering(hover);
     };
+    const onLeave = () => setIsVisible(false);
+    const onEnter = () => setIsVisible(true);
 
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
-
+    window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('mouseover', onOver, { passive: true });
+    document.addEventListener('mouseleave', onLeave);
+    document.addEventListener('mouseenter', onEnter);
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseleave', onLeave);
+      document.removeEventListener('mouseenter', onEnter);
     };
-  }, []);
+  }, [isVisible]);
 
+  if (shouldReduceMotion) return null;
   if (!isVisible) return null;
+
+  const size = isHovering ? 28 : 18;
+  const offset = size / 2;
 
   return (
     <>
       <style>{`
-        /* Hide the default cursor only on non-touch devices */
-        @media (pointer: fine) {
-          body, a, button {
-            cursor: none !important;
-          }
+        @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+          body, a, button { cursor: none !important; }
         }
       `}</style>
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-[#ffb700] rounded-full pointer-events-none z-[9999] mix-blend-exclusion"
+        aria-hidden="true"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full"
+        style={{
+          width: size,
+          height: size,
+          border: '1.5px solid #FF4D00',
+          background: isHovering ? 'rgba(255,77,0,0.10)' : 'rgba(244,243,238,0.85)',
+          boxShadow: '0 2px 10px rgba(22,21,15,0.12)',
+        }}
         animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
-          scale: isHovering ? 3 : 1,
-          opacity: isHovering ? 0.5 : 1,
+          transform: `translate3d(${pos.x - offset}px, ${pos.y - offset}px, 0) scale(${isHovering ? 1 : 1})`,
+          opacity: 1,
         }}
         transition={{
           type: 'spring',
-          stiffness: 800,
-          damping: 35,
-          mass: 0.1,
+          stiffness: 650,
+          damping: 28,
+          mass: 0.22,
         }}
-      />
+      >
+        <span
+          className="absolute rounded-full bg-[#FF4D00] pointer-events-none"
+          style={{
+            width: 4,
+            height: 4,
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            opacity: isHovering ? 1 : 0.95,
+          }}
+        />
+      </motion.div>
     </>
   );
 };
