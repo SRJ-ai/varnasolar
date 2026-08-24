@@ -9,11 +9,30 @@
 
 :root {
   --ink: #16150F;
+  --ink-soft: #4A483E;
+  --ink-mute: #77746A;
   --paper: #F4F3EE;
+  --paper-deep: #EAE8DF;
+  --paper-card: #FBFAF7;
   --sun: #FF4D00;
+  --sun-hover: #D94100;
+  --sun-tint: #FFE3D6;
   --hairline: rgba(22, 21, 15, 0.12);
   --gutter-mobile: 24px;
   --gutter-desktop: 80px;
+}
+
+.dark {
+  --ink: #F4F3EE;
+  --ink-soft: #A3A198;
+  --ink-mute: #85837B;
+  --paper: #12110C;
+  --paper-deep: #16150F;
+  --paper-card: #1A1813;
+  --sun: #FF4D00;
+  --sun-hover: #FF7033;
+  --sun-tint: #3B1B0C;
+  --hairline: rgba(244, 243, 238, 0.12);
 }
 
 @layer base {

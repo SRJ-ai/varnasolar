@@ -10,19 +10,19 @@ export default {
       colors: {
         // ═══ INK & SUN — Bold Editorial System ═══
         ink: {
-          DEFAULT: '#16150F',   // Primary text, solid sections, buttons
-          soft: '#4A483E',      // Secondary body copy
-          mute: '#77746A',      // Captions, meta text
+          DEFAULT: 'var(--ink)',
+          soft: 'var(--ink-soft)',
+          mute: 'var(--ink-mute)',
         },
         paper: {
-          DEFAULT: '#F4F3EE',   // Page canvas
-          deep: '#EAE8DF',      // Alternating section tint
-          card: '#FBFAF7',      // Card surface (barely lifted)
+          DEFAULT: 'var(--paper)',
+          deep: 'var(--paper-deep)',
+          card: 'var(--paper-card)',
         },
         sun: {
-          DEFAULT: '#FF4D00',   // THE accent. One accent, whole page.
-          hover: '#D94100',
-          tint: '#FFE3D6',      // Wash backgrounds, highlight rows
+          DEFAULT: 'var(--sun)',
+          hover: 'var(--sun-hover)',
+          tint: 'var(--sun-tint)',
         },
 
         // ═══ Legacy palette — retuned to system. Do not use in new code. ═══
