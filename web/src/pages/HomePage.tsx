@@ -295,7 +295,7 @@ export const HomePage: React.FC = () => {
                   >
                     {client.logoUrl ? (
                       <img width="140" height="40"
-                        src={client.logoUrl}
+                        src={`https://wsrv.nl/?url=${encodeURIComponent(client.logoUrl.replace(/^https?:\/\//, ''))}&w=140&output=webp&q=60`}
                         alt={client.name}
                         loading="lazy"
                         className="max-h-10 max-w-[140px] w-auto h-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
