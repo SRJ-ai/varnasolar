@@ -62,7 +62,7 @@ export const ContactPage: React.FC = () => {
             transition={{ duration: 0.5, ease }}
             className="flex items-center gap-3 mb-6"
           >
-            <img src="/images/varna-logo2.png" alt="Varna Solar" width={120} height={28} className="h-7 w-auto object-contain" loading="eager" />
+            <img src={`\${import.meta.env.BASE_URL}images/varna-logo2.png`} alt="Varna Solar" width={120} height={28} className="h-7 w-auto object-contain" loading="eager" />
             <span className="label-mono text-ink-mute hidden sm:inline">Contact &amp; Branches — Hyderabad HQ</span>
           </motion.div>
           <motion.p

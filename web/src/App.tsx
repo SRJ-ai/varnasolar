@@ -24,8 +24,35 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
+const routeTitles: Record<string, string> = {
+  '/': 'Varna Solar | Rooftop Solar EPC in Hyderabad & Telangana',
+  '/about-us': 'About Us | Varna Solar',
+  '/why-choose-us': 'Why Choose Us | Varna Solar',
+  '/residential-solar': 'Residential Rooftop Solar | Varna Solar',
+  '/commercial-solar': 'Commercial Solar Solutions | Varna Solar',
+  '/industrial-solar': 'Industrial Solar Power | Varna Solar',
+  '/agriculture-solar': 'Agricultural Solar Pumps (PM KUSUM) | Varna Solar',
+  '/pm-surya-ghar-yojana': 'PM Surya Ghar Subsidy Guide | Varna Solar',
+  '/pm-kusum-scheme': 'PM KUSUM Scheme | Varna Solar',
+  '/solar-calculator': 'Solar Savings Calculator | Varna Solar',
+  '/projects': 'Our Landmark Projects | Varna Solar',
+  '/blogs': 'Solar Knowledge Hub | Varna Solar',
+  '/contact': 'Contact Us | Varna Solar',
+  '/admin/login': 'Admin Login | Varna Solar',
+  '/admin': 'Admin Dashboard | Varna Solar',
+};
+
 const AnimatedRoutes = () => {
   const location = useLocation();
+
+  React.useEffect(() => {
+    let title = routeTitles[location.pathname];
+    if (!title && location.pathname.startsWith('/blog/')) {
+      title = 'Blog Post | Varna Solar';
+    }
+    document.title = title || 'Varna Solar';
+  }, [location.pathname]);
+
   return (
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>

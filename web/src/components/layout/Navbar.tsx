@@ -86,7 +86,7 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
                 </div>
                 <p className="text-xs text-ink-mute mt-0.5">{item.description}</p>
               </div>
-              <ArrowUpRight aria-hidden="true" className="w-4 h-4 mt-0.5 text-ink/30 group-hover:text-sun shrink-0 transition-colors" />
+              <ArrowUpRight aria-hidden="true" className="w-4 h-4 mt-0.5 text-ink/30 group-hover:text-sun group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform transition-colors shrink-0" />
             </Link>
           ))}
         </motion.div>
@@ -105,9 +105,9 @@ export const Navbar: React.FC<{ onOpenQuoteModal?: () => void }> = ({ onOpenQuot
 
           {/* Wordmark — real Varna Solar logo + Waaree partner */}
            <Link to="/" className="flex items-center gap-3 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2">
-            <img src="/images/varna-logo2.png" alt="Varna Solar" width={120} height={36} className="h-9 w-auto object-contain" loading="eager" fetchPriority="high" />
+            <img src={`\${import.meta.env.BASE_URL}images/varna-logo2.png`} alt="Varna Solar" width={120} height={36} className="h-9 w-auto object-contain" loading="eager" fetchPriority="high" />
             <span className="hidden sm:block w-px h-8 bg-ink/15" aria-hidden="true" />
-            <img src="/images/waaree-partner-logo.png" alt="Waaree Channel Partner" width={100} height={28} className="hidden sm:block h-7 w-auto object-contain" loading="eager" />
+            <img src={`\${import.meta.env.BASE_URL}images/waaree-partner-logo.png`} alt="Waaree Channel Partner" width={100} height={28} className="hidden sm:block h-7 w-auto object-contain" loading="eager" />
           </Link>
 
           {/* Desktop nav — HOME | ABOUT US | SOLAR SOLUTIONS | GOVT SCHEMES | WHY CHOOSE US | PROJECTS | BLOGS */}

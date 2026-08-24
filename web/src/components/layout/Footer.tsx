@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
     <footer className="w-full bg-ink text-paper">
       {/* Logo + giant wordmark */}
       <div className="container-editorial pt-10 pb-10 hairline-b border-white/10 flex flex-col gap-6">
-        <img src="/images/varna-logo.png" alt="Varna Solar" className="h-10 w-auto object-contain self-start" loading="lazy" />
+        <img src={`\${import.meta.env.BASE_URL}images/varna-logo.png`} alt="Varna Solar" className="h-10 w-auto object-contain self-start" loading="lazy" />
         <p className="font-display font-black uppercase tracking-tightest leading-[0.85] text-paper select-none text-[clamp(3rem,11vw,10.5rem)]">
           Varna<span className="text-sun">.</span>Solar
         </p>

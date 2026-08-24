@@ -32,6 +32,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({ children, classN
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
+      whileTap={{ scale: 0.97 }}
       style={{ x: springX, y: springY }}
       className={`relative flex items-center justify-center ${className}`}
       onClick={onClick}
