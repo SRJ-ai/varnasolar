@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { PageTransition } from '@/components/common/PageTransition';
 import { PROJECTS_DATA } from '@/data/projectsData';
+import { COMPANY_DATA } from '@/data/companyData';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 
 const SECTORS = ['All', 'Industrial', 'Commercial', 'Residential', 'Agriculture'] as const;
 
@@ -38,17 +40,46 @@ export const ProjectsPage: React.FC = () => {
                 <p className="text-sm text-ink-soft">{p.location} · {p.systemCapacity}</p>
               </div>
               
-              {/* ponytail: Native HTML details instead of heavy framer-motion modal. Add modal when details tag is insufficient. */}
-              <details className="mt-auto pt-4 border-t border-ink/10 cursor-pointer">
-                <summary className="font-mono text-xs text-sun hover:underline">View Details</summary>
-                <div className="pt-3 flex flex-col gap-2 text-sm">
-                  <p><strong>Client:</strong> {p.clientName}</p>
-                  <p><strong>Generation:</strong> {p.annualGenerationKWh.toLocaleString()} kWh/yr</p>
-                  <p><strong>Savings:</strong> ₹{p.annualSavingsINR.toLocaleString()}/yr</p>
-                  <p><strong>Offset:</strong> {p.co2OffsetTonnesPerYear} tonnes CO₂</p>
-                  <p className="italic text-ink-soft mt-2">"{p.testimonial.quote}"</p>
+              <div className="mt-auto pt-4 border-t border-ink/10 flex flex-col gap-3 text-sm">
+                <div className="grid grid-cols-2 gap-y-3 gap-x-2 text-xs">
+                  <div>
+                    <span className="text-ink-mute block mb-0.5">Client</span>
+                    <strong className="text-ink leading-snug">{p.clientName}</strong>
+                  </div>
+                  <div>
+                    <span className="text-ink-mute block mb-0.5">Annual Savings</span>
+                    <strong className="text-ink leading-snug">₹{p.annualSavingsINR.toLocaleString()}</strong>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="text-ink-mute block mb-0.5">Technology</span>
+                    <strong className="text-ink leading-snug">{p.panelsUsed} <br/> {p.inverterUsed}</strong>
+                  </div>
                 </div>
-              </details>
+                
+                {p.keyTechnicalHighlights && (
+                  <ul className="list-disc pl-4 text-xs text-ink-soft flex flex-col gap-1 mt-1">
+                    {p.keyTechnicalHighlights.map((highlight, idx) => (
+                      <li key={idx}>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
+                
+                {p.testimonial && (
+                  <div className="mt-2 p-3 bg-paper-deep border-l-2 border-sun text-xs italic text-ink-soft leading-relaxed">
+                    "{p.testimonial.quote}"
+                  </div>
+                )}
+                
+                <a 
+                  href={COMPANY_DATA.contact.whatsappLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-ink bg-paper text-ink hover:bg-ink hover:text-paper font-display font-bold uppercase tracking-tight transition-colors text-sm w-full"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Request Quote
+                </a>
+              </div>
             </div>
           ))}
         </div>
