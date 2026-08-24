@@ -7,6 +7,8 @@ import { STATE_TARIFFS_DATA } from '@/data/stateTariffs';
 import { calculateSolarSavings } from '@/utils/calculations';
 import { ConnectionType } from '@/types/solar';
 import { PaybackChart } from '@/components/calculator/PaybackChart';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { QuotePDF } from '@/components/calculator/QuotePDF';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const rise = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.3 } as const, transition: { duration: 0.55, ease } };
@@ -184,7 +186,26 @@ export const SolarCalculatorPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link to="/contact" className="btn-premium flex-1 justify-center py-4">Claim ₹{results.centralSubsidyINR.toLocaleString('en-IN')} Subsidy Quote <ArrowRight aria-hidden="true" className="w-4 h-4" strokeWidth={1.75} /></Link>
-                  <Link to="/pm-surya-ghar-yojana" className="btn-outline-premium shrink-0">Subsidy guide</Link>
+                  
+                  <PDFDownloadLink
+                    document={
+                      <QuotePDF
+                        systemSizeKW={results.systemSizeKW}
+                        grossCostINR={results.grossCostINR}
+                        centralSubsidyINR={results.centralSubsidyINR}
+                        netCostINR={results.netCostINR}
+                        monthlySavingsINR={results.monthlySavingsINR}
+                        paybackPeriodYears={results.paybackPeriodYears}
+                        lifetimeSavingsINR30Yr={results.lifetimeSavingsINR30Yr}
+                        co2OffsetTonnes30Yr={results.co2OffsetTonnes30Yr}
+                        connectionType={connectionType}
+                      />
+                    }
+                    fileName="Varna_Solar_Proposal.pdf"
+                    className="btn-outline-premium shrink-0 !border-ink !text-ink hover:!bg-ink hover:!text-paper text-center justify-center py-4"
+                  >
+                    {({ loading }) => (loading ? 'Generating PDF...' : 'Download PDF Proposal')}
+                  </PDFDownloadLink>
                 </div>
               </div>
 

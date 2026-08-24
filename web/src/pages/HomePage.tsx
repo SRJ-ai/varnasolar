@@ -23,6 +23,7 @@ import {
 import { PageTransition } from '@/components/common/PageTransition';
 import { COMPANY_DATA } from '@/data/companyData';
 import { PROJECTS_DATA } from '@/data/projectsData';
+import { useTranslation } from 'react-i18next';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -143,6 +144,7 @@ const steps = [
 ];
 
 export const HomePage: React.FC = () => {
+  const { t } = useTranslation();
   const featuredProjects = PROJECTS_DATA.filter((p) => p.isFeatured).slice(0, 3);
   const hq = COMPANY_DATA.branches.find((b) => b.isHQ);
   const regionalBranches = COMPANY_DATA.branches.filter((b) => !b.isHQ);
@@ -170,9 +172,8 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.7, ease, delay: 0.08 }}
                 className="headline-hero text-[clamp(3.2rem,9vw,8.2rem)]"
               >
-                Own your
-                <br />
-                <span className="text-sun">power.</span>
+                {t('hero.headline').replace('.', '')}
+                <span className="text-sun">.</span>
               </motion.h1>
             </div>
 
@@ -200,7 +201,7 @@ export const HomePage: React.FC = () => {
               className="flex flex-col gap-4"
             >
               <p className="text-base md:text-lg text-ink-soft leading-[1.7] whitespace-normal lg:whitespace-nowrap lg:max-w-none max-w-none hyphens-none break-normal overflow-visible">
-                Rooftop solar engineered end&#8209;to&#8209;end — design, subsidy paperwork, install, monitoring.
+                {t('hero.subhead')}
               </p>
               <div className="flex flex-wrap items-center gap-3 shrink-0">
                 <Link to="/solar-calculator" className="btn-outline-premium">

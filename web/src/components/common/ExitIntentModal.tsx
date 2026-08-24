@@ -13,22 +13,25 @@ export const ExitIntentModal: React.FC = () => {
       return;
     }
 
-    const handleMouseLeave = (e: MouseEvent) => {
-      // If cursor leaves from the top of the viewport
-      if (e.clientY <= 0 || e.clientY < 5) {
+    const handleMouseOut = (e: MouseEvent) => {
+      // e.relatedTarget is null when the mouse leaves the window entirely.
+      // e.clientY < 20 ensures they are leaving from the top (towards tabs/URL bar).
+      if (!e.relatedTarget && e.clientY < 20) {
         setIsOpen(true);
         sessionStorage.setItem('exitIntentTriggered', 'true');
+        // Remove listener immediately after triggering
+        document.removeEventListener('mouseout', handleMouseOut);
       }
     };
 
     // Add slight delay before activating to prevent immediate trigger on load
     const timer = setTimeout(() => {
-      document.addEventListener('mouseleave', handleMouseLeave);
-    }, 3000);
+      document.addEventListener('mouseout', handleMouseOut);
+    }, 2000); // reduced delay to 2s for better testing
 
     return () => {
       clearTimeout(timer);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseout', handleMouseOut);
     };
   }, [location.pathname]);
 
