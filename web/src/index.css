@@ -85,8 +85,7 @@
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 0.94;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    word-break: normal;
   }
   .headline-section {
     font-family: 'Archivo', sans-serif;
