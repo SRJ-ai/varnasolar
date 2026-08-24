@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "schemes": "Schemes",
+    "calculator": "Calculator",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "The Solar Standard.",
+    "subhead": "Turnkey rooftop EPC for factories, businesses, and homes. Engineered for maximum yield, built to outlast.",
+    "ctaQuote": "Get a Quote",
+    "ctaProjects": "View Landmark Projects"
+  }
+}
