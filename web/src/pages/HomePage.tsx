@@ -27,9 +27,10 @@ import { useTranslation } from 'react-i18next';
 import { useScroll, useTransform } from 'framer-motion';
 import { InfiniteMarquee } from '@/components/common/InfiniteMarquee';
 import { ImpactTicker } from '@/components/common/ImpactTicker';
-import { SolarRoof3D } from '@/components/common/SolarRoof3D';
 import { Magnetic } from '@/components/common/Magnetic';
-import { EarthGlobe } from '@/components/common/EarthGlobe';
+
+const LazySolarRoof3D = React.lazy(() => import('@/components/common/SolarRoof3D').then(module => ({ default: module.SolarRoof3D })));
+const LazyEarthGlobe = React.lazy(() => import('@/components/common/EarthGlobe').then(module => ({ default: module.EarthGlobe })));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -354,7 +355,9 @@ export const HomePage: React.FC = () => {
             Drag to rotate the roof. Every project receives a millimeter-perfect 3D shadow analysis before installation.
           </p>
         </div>
-        <SolarRoof3D />
+        <React.Suspense fallback={<div className="w-full h-full flex items-center justify-center text-ink-mute font-mono text-sm">Loading 3D Visualizer...</div>}>
+          <LazySolarRoof3D />
+        </React.Suspense>
       </section>
 
       {/* ═══════════════════ 4 — WHAT WE DO ═══════════════════ */}
@@ -780,7 +783,9 @@ export const HomePage: React.FC = () => {
           <div className="bg-paper-card border border-ink/15 p-8 md:p-12 relative overflow-hidden group min-h-[400px] flex items-center justify-center">
             <div className="absolute inset-0 bg-ink/5 group-hover:bg-ink/0 transition-colors z-10 pointer-events-none" />
             <div className="absolute inset-0 z-0">
-              <EarthGlobe />
+              <React.Suspense fallback={<div className="w-full h-full flex items-center justify-center text-ink-mute font-mono text-sm">Loading Impact Globe...</div>}>
+                <LazyEarthGlobe />
+              </React.Suspense>
             </div>
             
             <div className="relative z-20 pointer-events-none text-center bg-paper/80 backdrop-blur px-6 py-4 border border-ink/10">

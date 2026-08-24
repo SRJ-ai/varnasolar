@@ -6,7 +6,6 @@ import { ScrollProgress } from './components/common/ScrollProgress';
 import { ExitIntentModal } from './components/common/ExitIntentModal';
 import { AppSplash } from './components/common/AppSplash';
 import { ThemeProvider } from './components/common/ThemeProvider';
-import { PhotonBackground } from './components/common/PhotonBackground';
 // Page Imports
 import { Suspense, lazy } from 'react';
 import { PageLoader } from './components/common/PageLoader';
@@ -98,7 +97,6 @@ const AnimatedRoutes = () => {
 export function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="varna-ui-theme">
-      <PhotonBackground />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AppSplash />
         <ScrollProgress />

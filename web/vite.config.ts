@@ -46,5 +46,20 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('@react-three')) return 'vendor-three';
+            if (id.includes('framer-motion')) return 'vendor-motion';
+            if (id.includes('cobe')) return 'vendor-cobe';
+            if (id.includes('recharts')) return 'vendor-charts';
+            if (id.includes('@react-pdf')) return 'vendor-pdf';
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) return 'vendor-react';
+            return 'vendor';
+          }
+        }
+      }
+    }
   },
 });
