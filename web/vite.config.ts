@@ -45,6 +45,7 @@ export default defineConfig({
     target: 'esnext',
     outDir: 'dist',
     sourcemap: false,
+    modulePreload: false,
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
