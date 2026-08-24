@@ -200,7 +200,7 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.6, ease, delay: 0.24 }}
               className="flex flex-col gap-4"
             >
-              <p className="text-base md:text-lg text-ink-soft leading-[1.7] whitespace-normal lg:whitespace-nowrap lg:max-w-none max-w-none hyphens-none break-normal overflow-visible">
+              <p className="text-base md:text-lg text-ink-soft leading-[1.7] max-w-2xl">
                 {t('hero.subhead')}
               </p>
               <div className="flex flex-wrap items-center gap-3 shrink-0">
