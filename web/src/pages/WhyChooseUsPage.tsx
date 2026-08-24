@@ -77,7 +77,7 @@ export const WhyChooseUsPage: React.FC = () => {
             transition={{ duration: 0.5, ease }}
             className="flex items-center gap-3 mb-6"
           >
-            <img width="400" height="300" src={`\${import.meta.env.BASE_URL}images/varna-logo2.png`} alt="Varna Solar" className="h-7 w-auto object-contain" />
+            <img width="400" height="300" src={`${import.meta.env.BASE_URL}images/varna-logo2.png`} alt="Varna Solar" className="h-7 w-auto object-contain" />
             <span className="label-mono text-ink-mute hidden sm:inline">Varna Solar — Authorized Waaree Partner</span>
           </motion.div>
           <motion.p

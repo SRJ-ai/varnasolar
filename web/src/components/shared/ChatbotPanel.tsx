@@ -104,7 +104,7 @@ export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ isOpen, onClose }) =
           <div className="flex items-center justify-between px-4 py-3 border-b border-ink/12 bg-paper-card shrink-0">
             <div className="flex items-center gap-2.5">
               <img
-                src={`\${import.meta.env.BASE_URL}images/varna-logo2.png`}
+                src={`${import.meta.env.BASE_URL}images/varna-logo2.png`}
                 alt="Varna Solar"
                 width={80}
                 height={24}

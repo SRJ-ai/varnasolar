@@ -92,7 +92,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 hairline-b">
-              <img src={`\${import.meta.env.BASE_URL}images/varna-logo2.png`} alt="Varna Solar" width={120} height={32} className="h-8 w-auto object-contain" loading="eager" />
+              <img src={`${import.meta.env.BASE_URL}images/varna-logo2.png`} alt="Varna Solar" width={120} height={32} className="h-8 w-auto object-contain" loading="eager" />
               <button
                 type="button"
                 onClick={onClose}
